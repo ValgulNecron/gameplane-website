@@ -1,0 +1,47 @@
+---
+interface Props {
+  variant?: "primary" | "outline" | "secondary" | "ghost";
+  size?: "md" | "lg";
+  href?: string;
+  /** Renders a non-interactive element (the designed disabled Demo button). */
+  disabled?: boolean;
+  class?: string;
+  "aria-label"?: string;
+}
+
+const {
+  variant = "primary",
+  size = "md",
+  href,
+  disabled = false,
+  class: className = "",
+  "aria-label": ariaLabel,
+} = Astro.props;
+
+const sizeClasses = {
+  md: "h-10 gap-1.5 px-4 text-sm",
+  lg: "h-12 gap-1.5 px-6 text-sm",
+}[size];
+
+const variantClasses = {
+  primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+  outline: "border border-border bg-background text-foreground hover:border-muted-foreground",
+  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+  ghost: "text-foreground hover:bg-secondary/60",
+}[variant];
+
+const base = `inline-flex items-center justify-center rounded-pill font-primary font-medium ${sizeClasses} ${variantClasses}`;
+const classes = disabled ? `${base} cursor-default opacity-50 ${className}` : `${base} ${className}`;
+---
+
+{
+  href && !disabled ? (
+    <a class={classes} href={href} aria-label={ariaLabel}>
+      <slot />
+    </a>
+  ) : (
+    <span class={classes} aria-label={ariaLabel} aria-disabled={disabled ? "true" : undefined}>
+      <slot />
+    </span>
+  )
+}

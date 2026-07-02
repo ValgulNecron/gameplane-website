@@ -1,0 +1,32 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  icon: string;
+  title: string;
+  body: string;
+  /** Shorter copy for the mobile card stack (per the mobile design variant). */
+  shortBody?: string;
+}
+
+const { icon, title, body, shortBody } = Astro.props;
+---
+
+<div class="flex flex-col gap-2 rounded-m border border-border bg-card p-4 md:gap-3 md:p-6">
+  <div
+    class="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary md:h-12 md:w-12 md:rounded-[10px]"
+  >
+    <Icon name={icon} class="h-[18px] w-[18px] text-primary md:h-[22px] md:w-[22px]" />
+  </div>
+  <h3 class="font-primary text-sm font-semibold text-foreground md:text-base">{title}</h3>
+  {
+    shortBody ? (
+      <>
+        <p class="text-xs leading-snug text-muted-foreground md:hidden">{shortBody}</p>
+        <p class="hidden text-[13px] leading-snug text-muted-foreground md:block">{body}</p>
+      </>
+    ) : (
+      <p class="text-xs leading-snug text-muted-foreground md:text-[13px]">{body}</p>
+    )
+  }
+</div>

@@ -1,0 +1,61 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  /** Title shown in the chrome bar. */
+  title?: string;
+  /** Plain-text command copied by the copy button; omit to hide the button. */
+  copyText?: string;
+  class?: string;
+}
+
+const { title = "terminal", copyText, class: className = "" } = Astro.props;
+---
+
+<div
+  class={`overflow-hidden rounded-m border border-border bg-terminal ${className}`}
+  data-terminal
+>
+  <div class="flex h-10 items-center justify-between border-b border-border px-4">
+    <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1.5">
+        <span class="h-2 w-2 rounded-pill bg-secondary"></span>
+        <span class="h-2 w-2 rounded-pill bg-secondary"></span>
+        <span class="h-2 w-2 rounded-pill bg-secondary"></span>
+      </div>
+      <span class="text-xs text-muted-foreground">{title}</span>
+    </div>
+    {
+      copyText && (
+        <button
+          class="text-foreground/70 hover:text-foreground"
+          type="button"
+          aria-label="Copy command"
+          data-copy={copyText}
+        >
+          <Icon name="copy" class="h-4 w-4" data-icon-copy />
+          <Icon name="check" class="hidden h-4 w-4 text-primary" data-icon-check />
+        </button>
+      )
+    }
+  </div>
+  <div class="overflow-x-auto p-4 font-primary text-[11px] leading-relaxed md:p-6 md:text-sm">
+    <slot />
+  </div>
+</div>
+
+<script>
+  for (const button of document.querySelectorAll<HTMLButtonElement>("[data-terminal] [data-copy]")) {
+    button.addEventListener("click", () => {
+      const text = button.dataset.copy ?? "";
+      void navigator.clipboard.writeText(text).then(() => {
+        button.querySelector("[data-icon-copy]")?.classList.add("hidden");
+        button.querySelector("[data-icon-check]")?.classList.remove("hidden");
+        setTimeout(() => {
+          button.querySelector("[data-icon-copy]")?.classList.remove("hidden");
+          button.querySelector("[data-icon-check]")?.classList.add("hidden");
+        }, 1500);
+      });
+    });
+  }
+</script>

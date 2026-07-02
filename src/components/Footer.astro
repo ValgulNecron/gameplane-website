@@ -1,0 +1,74 @@
+---
+import { GITHUB_URL, VERSION } from "../config";
+import { withBase } from "../lib/url";
+import Badge from "./Badge.astro";
+import LogoMark from "./LogoMark.astro";
+
+const groups = [
+  {
+    title: "PRODUCT",
+    links: [
+      { label: "Features", href: withBase("/features/") },
+      { label: "Games", href: withBase("/games/") },
+      { label: "Showcase", href: withBase("/showcase/") },
+      { label: "Compare", href: withBase("/compare/") },
+    ],
+  },
+  {
+    title: "RESOURCES",
+    links: [
+      { label: "Documentation", href: withBase("/docs/") },
+      { label: "Changelog", href: withBase("/docs/changelog/") },
+      { label: "GitHub", href: GITHUB_URL },
+    ],
+  },
+];
+---
+
+<footer class="border-t border-border bg-background px-5 pb-8 pt-8 md:px-20 md:pt-12">
+  <div class="flex flex-col gap-8 md:flex-row md:justify-between">
+    <div class="flex max-w-xs flex-col gap-2">
+      <a class="flex items-center gap-2" href={withBase("/")}>
+        <LogoMark size="sm" />
+        <span class="font-primary text-sm font-semibold text-foreground">gameplane</span>
+      </a>
+      <p class="text-[13px] text-muted-foreground">
+        Kubernetes-native game server control plane.
+      </p>
+      <Badge dot={false} class="self-start">AGPL-3.0-or-later</Badge>
+    </div>
+
+    <div class="flex flex-col gap-8 md:flex-row md:gap-16">
+      {
+        groups.map((group) => (
+          <div class="flex flex-col gap-2.5">
+            <span class="font-primary text-[11px] font-semibold text-foreground">
+              {group.title}
+            </span>
+            {group.links.map((link) => (
+              <a
+                class="text-[13px] text-muted-foreground hover:text-foreground"
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        ))
+      }
+      <div class="hidden flex-col gap-2.5 md:flex">
+        <span class="font-primary text-[11px] font-semibold text-foreground">LICENSE</span>
+        <span class="text-[13px] text-muted-foreground">AGPL-3.0-or-later</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-6 h-px w-full bg-border md:my-8"></div>
+
+  <div class="flex flex-col gap-2 md:flex-row md:justify-between">
+    <span class="text-xs text-muted-foreground">© 2026 Gameplane contributors.</span>
+    <span class="text-xs text-muted-foreground">
+      {VERSION} · AGPL-3.0-or-later · Built on Kubernetes
+    </span>
+  </div>
+</footer>

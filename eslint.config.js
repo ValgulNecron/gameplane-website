@@ -2,10 +2,11 @@
 // web/eslint.config.js: no-explicit-any and no-floating-promises are errors.
 // Prettier handles formatting by convention; ESLint covers correctness.
 import js from "@eslint/js";
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 import astro from "eslint-plugin-astro";
 
-export default tseslint.config(
+export default defineConfig(
   { ignores: ["dist/", ".astro/", "node_modules/"] },
   js.configs.recommended,
   ...tseslint.configs.recommended,

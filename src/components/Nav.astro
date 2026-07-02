@@ -1,0 +1,90 @@
+---
+import { GITHUB_URL } from "../config";
+import { withBase } from "../lib/url";
+import Badge from "./Badge.astro";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+import LogoMark from "./LogoMark.astro";
+
+const links = [
+  { label: "Features", href: withBase("/features/") },
+  { label: "Games", href: withBase("/games/") },
+  { label: "Docs", href: withBase("/docs/") },
+  { label: "Compare", href: withBase("/compare/") },
+  { label: "Showcase", href: withBase("/showcase/") },
+];
+---
+
+<header class="border-b border-border bg-background">
+  <nav class="flex h-[60px] items-center justify-between px-5 md:h-[72px] md:px-8">
+    <div class="flex items-center gap-3">
+      <a class="flex items-center gap-2" href={withBase("/")}>
+        <LogoMark size="md" />
+        <span class="font-primary text-lg font-semibold text-foreground">gameplane</span>
+      </a>
+      <Badge class="hidden md:inline-flex">Beta</Badge>
+    </div>
+
+    <div class="hidden items-center gap-6 md:flex">
+      {
+        links.map((link) => (
+          <a
+            class="font-primary text-sm font-medium text-muted-foreground hover:text-foreground"
+            href={link.href}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="hidden items-center gap-3 md:flex">
+      <Button variant="outline" size="lg" href={GITHUB_URL} class="!px-3" aria-label="GitHub">
+        <Icon name="github" class="h-5 w-5" />
+      </Button>
+      <Button variant="secondary" disabled>Demo</Button>
+    </div>
+
+    <button
+      id="nav-toggle"
+      class="text-foreground md:hidden"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-mobile"
+    >
+      <Icon name="menu" class="h-[22px] w-[22px]" />
+    </button>
+  </nav>
+
+  <div id="nav-mobile" class="hidden border-t border-border px-5 py-4 md:!hidden">
+    <div class="flex flex-col gap-4">
+      {
+        links.map((link) => (
+          <a
+            class="font-primary text-sm font-medium text-muted-foreground hover:text-foreground"
+            href={link.href}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        class="flex items-center gap-2 font-primary text-sm font-medium text-muted-foreground hover:text-foreground"
+        href={GITHUB_URL}
+      >
+        <Icon name="github" class="h-4 w-4" />
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-mobile");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("hidden") === false;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+</script>

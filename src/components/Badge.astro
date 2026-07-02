@@ -1,0 +1,16 @@
+---
+interface Props {
+  /** Show the small primary-colored dot before the label. */
+  dot?: boolean;
+  class?: string;
+}
+
+const { dot = true, class: className = "" } = Astro.props;
+---
+
+<span
+  class={`inline-flex items-center gap-2 rounded-pill border border-border px-3.5 py-1.5 text-xs text-muted-foreground ${className}`}
+>
+  {dot && <span class="h-1.5 w-1.5 rounded-pill bg-primary"></span>}
+  <slot />
+</span>
