@@ -1,0 +1,32 @@
+---
+title: Security
+description: Auth, RBAC, mTLS, network policies, and module verification protect against cluster-internal and external threats.
+section: core-concepts
+order: 2
+icon: shield
+---
+
+import DocsCallout from "../../components/docs/DocsCallout.astro";
+
+## Threat model
+
+The dashboard is deliberately internet-exposed — treat login as enumerable and game images as low-trust.
+
+## Authentication
+
+Local accounts with argon2id hashing, or OIDC (Keycloak, Google, GitHub) with JWT validation.
+
+## Authorization
+
+Permission-based RBAC with admin/operator/viewer roles, scoped per namespace or cluster-wide.
+
+## API ↔ Agent
+
+mTLS with an operator-managed CA; the agent refuses plain HTTP once TLS material is present.
+
+<DocsCallout icon="shield-alert" title="Found a security issue?">
+  Report it privately via GitHub Security Advisories rather than a public issue — we'll coordinate
+  a fix before public disclosure.
+</DocsCallout>
+
+The complete security model — pod security defaults, network policies, and module signature verification — is documented in the [security doc on GitHub](https://github.com/ValgulNecron/Gameplane/blob/main/docs/security.md).

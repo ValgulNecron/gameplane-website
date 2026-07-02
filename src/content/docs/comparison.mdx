@@ -1,0 +1,18 @@
+---
+title: Comparison
+description: How Gameplane's architecture differs from CubeCoders AMP, Pterodactyl, and PufferPanel.
+section: reference
+order: 1
+icon: arrow-right-left
+---
+
+| | GAMEPLANE | AMP | PTERODACTYL | PUFFERPANEL |
+| --- | --- | --- | --- | --- |
+| License | Open source (AGPL-3.0) | Commercial — per-instance tiers, no free tier | Open source (MIT) | Open source (Apache-2.0) |
+| Hosting model | Kubernetes — CRDs + operator | Native processes; optional container isolation | Docker containers (Wings daemon) | Native or Docker (daemon) |
+| Multi-host coordination | Declarative — same control plane at any scale | Controller/Target — manual, Professional+ only | Panel + per-node Wings — manual assignment | Panel + per-node daemon — manual assignment |
+| Game catalog | 3 official modules; open template format | Dozens of templates, community-extensible | Community "Eggs" — large, decentralized catalog | ~40-50 community templates |
+| OS support | Any Kubernetes 1.28+ cluster | Windows and Linux | Linux only (Wings) | Linux native; Docker mode cross-platform |
+| Auto-scaling / self-healing | Yes — Kubernetes-native reconciliation | No | No | No |
+
+Figures reflect each project's public documentation as of mid-2026 and may change — verify current specifics on each project's own site before deciding.

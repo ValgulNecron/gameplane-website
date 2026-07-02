@@ -1,0 +1,30 @@
+---
+title: Contributing
+description: Follow the dev loop, the design-first workflow, and code style standards before opening a pull request.
+section: development
+order: 1
+icon: users
+---
+
+import CodeLabel from "../../components/docs/CodeLabel.astro";
+
+## Dev loop
+
+make dev-up spins up a local kind cluster with images and the Helm chart already installed.
+
+<CodeLabel>DEV LOOP</CodeLabel>
+
+```sh
+make dev-up      # kind cluster + images + Helm chart
+make web-dev     # Vite dev server, proxied to the API
+```
+
+## Design first
+
+UI changes start in design.pen — the designed screens are the source of truth — then get translated to React.
+
+## Code standards
+
+Go via gofmt/vet/golangci-lint; TypeScript strict with ESLint — comments only when the why isn't obvious.
+
+The full contribution guide — test tiers, signed commits, and the PR process — is in [contributing.md on GitHub](https://github.com/ValgulNecron/Gameplane/blob/main/docs/contributing.md).

@@ -1,0 +1,39 @@
+---
+title: Getting Started
+description: Deploy Gameplane to Kubernetes using Helm and set up your first admin user.
+section: start-here
+order: 1
+icon: rocket
+---
+
+import CodeLabel from "../../components/docs/CodeLabel.astro";
+
+## Prerequisites
+
+Kubernetes 1.28+, Helm 3.13+, and a default StorageClass. An ingress controller and cert-manager are optional but recommended for TLS.
+
+## One-shot install
+
+Pull the chart straight from GHCR and install with one helm upgrade --install command — no manual repo add needed.
+
+<CodeLabel>ONE-SHOT INSTALL</CodeLabel>
+
+```sh
+helm upgrade --install gameplane \
+    oci://ghcr.io/valgulnecron/charts/gameplane \
+    --version 0.2.0-beta.4 \
+    --namespace gameplane-system --create-namespace
+```
+
+## First-time setup
+
+Bootstrap an initial admin user with a 12+ character password via kubectl exec, then log in from the dashboard URL.
+
+<CodeLabel>BOOTSTRAP ADMIN</CodeLabel>
+
+```sh
+printf '%s' "$ADMIN_PASSWORD" | kubectl -n gameplane-system exec -i deploy/gameplane-api -- \
+  /api bootstrap-admin --username admin --password-stdin
+```
+
+For OIDC login, PostgreSQL instead of the bundled SQLite, and ingress/TLS options, see the full [install reference on GitHub](https://github.com/ValgulNecron/Gameplane/blob/main/docs/install.md).

@@ -1,0 +1,34 @@
+---
+title: Architecture
+description: Gameplane splits control across an operator, REST API, in-cluster agent sidecars, and the browser dashboard.
+section: core-concepts
+order: 1
+icon: network
+---
+
+import ArchFlow from "../../components/docs/ArchFlow.astro";
+
+<ArchFlow
+  nodes={[
+    { icon: "globe", title: "Browser", subtitle: "User" },
+    { icon: "server", title: "API", subtitle: "Gateway" },
+    { icon: "refresh-cw", title: "Operator", subtitle: "Controller" },
+    { icon: "boxes", title: "Kubernetes", subtitle: "Cluster" },
+    { icon: "cpu", title: "Agent", subtitle: "Sidecar" },
+  ]}
+  caption="Console and log traffic flow API ↔ Agent directly over mTLS; the Operator provisions and reconciles both."
+/>
+
+## Why two control planes
+
+The Operator reconciles CRDs declaratively; the API layer handles sessions, RBAC, and audit. kubectl and the dashboard always agree.
+
+## Data flow
+
+A dashboard action cascades: API → Operator → StatefulSet → Agent → heartbeat → status → browser refresh.
+
+## Module system
+
+ModuleSource CRs declare where templates come from — OCI registry, git, HTTP, local, or dashboard upload.
+
+The full component reference — data-flow walkthroughs, CRD relationships, and security boundaries — lives in the [architecture doc on GitHub](https://github.com/ValgulNecron/Gameplane/blob/main/docs/architecture.md).

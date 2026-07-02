@@ -1,0 +1,35 @@
+---
+title: Changelog
+description: Recent releases, newest first.
+section: reference
+order: 4
+icon: history
+---
+
+import ChangeEntry from "../../components/docs/ChangeEntry.astro";
+
+<div class="flex flex-col">
+  <ChangeEntry version="Unreleased" date="in development" highlight>
+    Added: the last UI-audit parity items — login password visibility toggle, user emails on the
+    Users page, port overrides in the Create Server wizard, and a redesigned "Back up now" flow.
+  </ChangeEntry>
+  <ChangeEntry version="v0.2.0-beta.4" date="2026-07-01">
+    Added: fleet metrics (gameserver/backup phase gauges with Grafana panels and alerts),
+    server-side audit-log export, an audit webhook push sink, the audit-to-syslog bridge, and
+    cosign-signed component images.
+  </ChangeEntry>
+  <ChangeEntry version="v0.2.0-beta.3" date="2026-06-27">
+    Added: bundled observability — Prometheus alerts and a Grafana dashboard, signed module
+    bundles with Cosign verification.
+  </ChangeEntry>
+  <ChangeEntry version="v0.2.0-beta.2" date="2026-06-22">
+    Breaking: CRD API group renamed kestrel.gg → gameplane.local as part of the project's rebrand
+    to Gameplane.
+  </ChangeEntry>
+  <ChangeEntry version="v0.2.0-beta.1" date="2026-06-22" last>
+    First beta: GameServer lifecycle, console/logs/files/players, backups & restore, signed OCI
+    modules, RBAC & audit.
+  </ChangeEntry>
+</div>
+
+The full release-by-release record, including fixes and internal changes, is in [CHANGELOG.md on GitHub](https://github.com/ValgulNecron/Gameplane/blob/main/CHANGELOG.md).

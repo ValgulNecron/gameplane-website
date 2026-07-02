@@ -1,0 +1,39 @@
+---
+title: Roadmap & Known Limitations
+description: What's solid today, what's explicitly deferred, and what's actively being built.
+section: reference
+order: 2
+icon: map
+sidebarLabel: Roadmap
+---
+
+import IconList from "../../components/docs/IconList.astro";
+
+## Beta status — v0.2.0-beta.4
+
+Core workflows — deploy a game server, console, files, backups/restore, modules, RBAC — work end to end and are covered by unit, integration, and kind-based e2e test suites.
+
+<div class="grid gap-8 md:grid-cols-2">
+  <IconList
+    title="Known limitations"
+    icon="minus"
+    items={[
+      "Per-GameServer RBAC — authorization is namespace-scoped today; server ownership is informational only.",
+      "Multi-cluster — one target cluster per dashboard.",
+      "No native S3 audit sink — events go to the database, exportable as CSV/JSON, and mirror to stdout, webhook, or syslog.",
+    ]}
+  />
+  <IconList
+    title="Recently shipped"
+    icon="circle-dot"
+    iconClass="text-primary"
+    items={[
+      "Fleet metrics — gameserver/backup phase gauges on /metrics, with Grafana panels and alerts.",
+      "Server-side audit-log export and webhook push sink.",
+      "Audit-to-syslog bridge.",
+      "Cosign signing for module bundles and component images.",
+    ]}
+  />
+</div>
+
+Deferred items graduate off this list as they ship — the [changelog](./changelog/) has the release-by-release record.
