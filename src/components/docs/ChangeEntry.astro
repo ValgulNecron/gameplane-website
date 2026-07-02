@@ -1,0 +1,25 @@
+---
+interface Props {
+  version: string;
+  date: string;
+  /** Highlight the version label (the Unreleased row). */
+  highlight?: boolean;
+  last?: boolean;
+}
+
+const { version, date, highlight = false, last = false } = Astro.props;
+---
+
+<div class={`flex flex-col gap-2 py-4 md:flex-row md:gap-6 ${last ? "" : "border-b border-border"}`}>
+  <div class="flex w-[150px] shrink-0 flex-col gap-0.5">
+    <span
+      class={`font-primary text-[15px] font-bold ${highlight ? "text-primary" : "text-foreground"}`}
+    >
+      {version}
+    </span>
+    <span class="text-xs text-muted-foreground">{date}</span>
+  </div>
+  <div class="text-[13px] leading-normal text-muted-foreground">
+    <slot />
+  </div>
+</div>

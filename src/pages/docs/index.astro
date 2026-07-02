@@ -1,0 +1,117 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import Icon from "../../components/Icon.astro";
+import { getOrderedDocs, docHref, sidebarLabel } from "../../lib/docs-nav";
+
+const docs = await getOrderedDocs();
+
+// The five entry-point cards the design shows on the docs home.
+const cardIds = ["getting-started", "architecture", "security", "module-authoring", "contributing"];
+const cards = cardIds
+  .map((id) => docs.find((doc) => doc.id === id))
+  .filter((doc) => doc !== undefined);
+
+const searchIndex = docs.map((doc) => ({
+  title: doc.data.title,
+  description: doc.data.description,
+  href: docHref(doc),
+  label: sidebarLabel(doc),
+}));
+---
+
+<DocsLayout
+  title="Documentation"
+  description="Everything you need to deploy, operate, extend, and contribute to Gameplane."
+  breadcrumb="Docs"
+  heading="Documentation"
+  lede="Everything you need to deploy, operate, extend, and contribute to Gameplane."
+>
+  <div class="flex flex-col gap-6">
+    <label
+      class="flex w-full max-w-[480px] items-center gap-2.5 rounded-m border border-border bg-card px-4 py-3"
+    >
+      <Icon name="search" class="h-4 w-4 shrink-0 text-muted-foreground" />
+      <input
+        id="docs-search"
+        class="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+        type="search"
+        placeholder="Search documentation..."
+        autocomplete="off"
+      />
+    </label>
+
+    <div id="docs-search-results" class="hidden flex-col gap-2"></div>
+
+    <div id="docs-cards" class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
+      {
+        cards.map((doc) => (
+          <a
+            class="group flex flex-col gap-3 rounded-m border border-border bg-card p-6 hover:border-muted-foreground"
+            href={docHref(doc)}
+          >
+            <div class="flex h-12 w-12 items-center justify-center rounded-[10px] bg-secondary">
+              <Icon name={doc.data.icon} class="h-[22px] w-[22px] text-primary" />
+            </div>
+            <span class="font-primary text-base font-semibold text-foreground">
+              {sidebarLabel(doc)}
+            </span>
+            <span class="text-[13px] leading-snug text-muted-foreground">
+              {doc.data.description}
+            </span>
+            <span class="flex items-center gap-1 font-primary text-[13px] font-medium text-primary">
+              Explore
+              <Icon name="arrow-right" class="h-[13px] w-[13px]" />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</DocsLayout>
+
+<script is:inline define:vars={{ searchIndex }}>
+  const input = document.getElementById("docs-search");
+  const results = document.getElementById("docs-search-results");
+  const cards = document.getElementById("docs-cards");
+
+  input?.addEventListener("input", () => {
+    const query = input.value.trim().toLowerCase();
+    if (!query) {
+      results.classList.add("hidden");
+      results.classList.remove("flex");
+      cards.classList.remove("hidden");
+      return;
+    }
+    const matches = searchIndex.filter(
+      (doc) =>
+        doc.title.toLowerCase().includes(query) ||
+        doc.label.toLowerCase().includes(query) ||
+        doc.description.toLowerCase().includes(query),
+    );
+    results.replaceChildren(
+      ...matches.map((doc) => {
+        const link = document.createElement("a");
+        link.href = doc.href;
+        link.className =
+          "flex flex-col gap-0.5 rounded-m border border-border bg-card px-4 py-3 hover:border-muted-foreground";
+        const title = document.createElement("span");
+        title.className = "font-primary text-sm font-semibold text-foreground";
+        title.textContent = doc.label;
+        const desc = document.createElement("span");
+        desc.className = "text-[13px] text-muted-foreground";
+        desc.textContent = doc.description;
+        link.append(title, desc);
+        return link;
+      }),
+    );
+    if (matches.length === 0) {
+      const empty = document.createElement("span");
+      empty.className = "text-[13px] text-muted-foreground";
+      empty.textContent = "No pages match your search.";
+      results.replaceChildren(empty);
+    }
+    results.classList.remove("hidden");
+    results.classList.add("flex");
+    cards.classList.add("hidden");
+  });
+</script>
