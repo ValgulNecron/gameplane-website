@@ -1,0 +1,110 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import CtaSection from "../components/CtaSection.astro";
+import Icon from "../components/Icon.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { GITHUB_URL } from "../config";
+import { withBase } from "../lib/url";
+
+const rows = [
+  {
+    label: "Hosting model",
+    docker: "Single host, Docker containers",
+    gameplane: "Kubernetes primitives — CRDs, an operator, StatefulSets, PVCs",
+  },
+  {
+    label: "Scaling",
+    docker: "One host per install",
+    gameplane: "Same control plane, from a k3s homelab to a multi-node production cluster",
+  },
+  {
+    label: "Operational model",
+    docker: "Tooling differs by install size",
+    gameplane: "Same tooling at every scale",
+  },
+  {
+    label: "Automation path",
+    docker: "Dashboard-driven",
+    gameplane: "Dashboard or kubectl apply — both stay in sync via the operator",
+  },
+];
+---
+
+<MarketingLayout
+  title="Compare — Gameplane"
+  description="How Gameplane's Kubernetes-native control plane differs from single-host, Docker-based game server panels like AMP, Pterodactyl, and PufferPanel."
+>
+  <section
+    class="flex flex-col items-center gap-8 px-6 pb-16 pt-12 md:gap-12 md:px-20 md:pb-24 md:pt-20"
+  >
+    <SectionHeader
+      eyebrow="COMPARE"
+      title="How Gameplane compares"
+      subtitle="A quick look at how a Kubernetes-native control plane differs from single-host, Docker-based panels."
+    />
+
+    <div class="w-full max-w-[960px] overflow-x-auto">
+      <div class="min-w-[720px] overflow-hidden rounded-m border border-border">
+        <div class="grid grid-cols-3 gap-6 bg-secondary px-6 py-4">
+          <span class="font-primary text-[11px] font-semibold tracking-widest text-muted-foreground"
+            >APPROACH</span
+          >
+          <span class="font-primary text-[11px] font-semibold tracking-widest text-muted-foreground"
+            >DOCKER-BASED PANELS</span
+          >
+          <span class="font-primary text-[11px] font-semibold tracking-widest text-primary"
+            >GAMEPLANE</span
+          >
+        </div>
+        {
+          rows.map((row, index) => (
+            <div
+              class={`grid grid-cols-3 gap-6 bg-card px-6 py-5 ${index < rows.length - 1 ? "border-b border-border" : ""}`}
+            >
+              <span class="font-primary text-sm font-semibold text-foreground">{row.label}</span>
+              <span class="text-[13px] leading-normal text-muted-foreground">{row.docker}</span>
+              <span class="text-[13px] leading-normal text-foreground">{row.gameplane}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <p class="max-w-[700px] text-center text-[13px] text-muted-foreground">
+      This is a high-level snapshot, not a feature-by-feature audit. For a fuller comparison
+      against AMP, Pterodactyl, and PufferPanel, see the
+      <a class="text-foreground underline hover:text-primary" href={withBase("/docs/comparison/")}
+        >docs</a
+      >.
+    </p>
+
+    <div
+      class="flex w-full max-w-[840px] flex-col gap-6 rounded-m border border-border bg-card p-6 md:flex-row md:p-8"
+    >
+      <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-secondary">
+        <Icon name="boxes" class="h-[26px] w-[26px] text-primary" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h2 class="font-primary text-lg font-semibold text-foreground">
+          Why Kubernetes-native matters
+        </h2>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          The operator handles everything a cluster admin expects from a K8s controller —
+          declarative reconciliation, owner references, leader election. Advanced users can bypass
+          the dashboard entirely and manage Gameplane with kubectl apply.
+        </p>
+      </div>
+    </div>
+
+    <p class="text-center text-[13px] text-muted-foreground">
+      Gameplane itself is open-source, licensed AGPL-3.0-or-later — see the
+      <a class="text-foreground underline hover:text-primary" href={`${GITHUB_URL}/blob/main/LICENSE`}
+        >license on GitHub</a
+      >.
+    </p>
+
+    <div class="w-full pt-2">
+      <CtaSection />
+    </div>
+  </section>
+</MarketingLayout>
