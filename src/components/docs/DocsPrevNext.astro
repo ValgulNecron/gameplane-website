@@ -1,0 +1,48 @@
+---
+import Icon from "../Icon.astro";
+
+interface Link {
+  title: string;
+  href: string;
+}
+
+interface Props {
+  prev?: Link | null;
+  next?: Link | null;
+}
+
+const { prev = null, next = null } = Astro.props;
+---
+
+<div class="flex items-center justify-between border-t border-border pt-4">
+  {
+    prev ? (
+      <a class="group flex items-center gap-2" href={prev.href}>
+        <Icon name="arrow-left" class="h-3.5 w-3.5 text-muted-foreground" />
+        <span class="flex flex-col">
+          <span class="text-[11px] text-muted-foreground">Previous</span>
+          <span class="font-primary text-sm font-medium text-foreground group-hover:text-primary">
+            {prev.title}
+          </span>
+        </span>
+      </a>
+    ) : (
+      <span />
+    )
+  }
+  {
+    next ? (
+      <a class="group flex items-center gap-2 text-right" href={next.href}>
+        <span class="flex flex-col items-end">
+          <span class="text-[11px] text-muted-foreground">Next</span>
+          <span class="font-primary text-sm font-medium text-foreground group-hover:text-primary">
+            {next.title}
+          </span>
+        </span>
+        <Icon name="arrow-right" class="h-3.5 w-3.5 text-muted-foreground" />
+      </a>
+    ) : (
+      <span />
+    )
+  }
+</div>

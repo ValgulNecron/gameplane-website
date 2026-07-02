@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { BASE, SITE } from "./src/config";
@@ -9,7 +10,7 @@ export default defineConfig({
   site: SITE,
   base: BASE,
   trailingSlash: "always",
-  integrations: [sitemap()],
+  integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },

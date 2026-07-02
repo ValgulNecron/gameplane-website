@@ -92,6 +92,121 @@
   }
 }
 
+/* Rendered docs markdown/MDX content, per the designed docs pages. */
+.docs-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.docs-prose h2 {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-top: 4px;
+  margin-bottom: -14px;
+}
+
+.docs-prose h3 {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: -16px;
+}
+
+.docs-prose p,
+.docs-prose li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.docs-prose ul {
+  list-style: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.docs-prose a {
+  color: var(--foreground);
+  text-decoration: underline;
+}
+
+.docs-prose a:hover {
+  color: var(--primary);
+}
+
+.docs-prose strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.docs-prose :not(pre) > code {
+  font-family: var(--font-primary);
+  font-size: 0.85em;
+  background-color: var(--secondary);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.docs-prose table {
+  display: block;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.docs-prose thead {
+  background-color: var(--secondary);
+}
+
+.docs-prose th {
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  text-align: left;
+  padding: 10px 16px;
+  white-space: nowrap;
+}
+
+.docs-prose th:nth-child(2) {
+  color: var(--primary);
+}
+
+.docs-prose td {
+  background-color: var(--card);
+  color: var(--muted-foreground);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  min-width: 160px;
+  vertical-align: top;
+}
+
+.docs-prose tr:last-child td {
+  border-bottom: none;
+}
+
+.docs-prose td:first-child {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.docs-prose td:nth-child(2) {
+  color: var(--foreground);
+}
+
 /* Shiki blocks: force the design's terminal background over the theme's. */
 .astro-code {
   background-color: var(--terminal) !important;

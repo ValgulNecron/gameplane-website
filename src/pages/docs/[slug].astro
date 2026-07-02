@@ -1,0 +1,37 @@
+---
+import type { InferGetStaticPropsType } from "astro";
+import { render } from "astro:content";
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import { getOrderedDocs, docHref, sidebarLabel } from "../../lib/docs-nav";
+
+export async function getStaticPaths() {
+  const docs = await getOrderedDocs();
+  return docs.map((doc, index) => ({
+    params: { slug: doc.id },
+    props: {
+      doc,
+      prev: index > 0 ? docs[index - 1] : null,
+      next: index < docs.length - 1 ? docs[index + 1] : null,
+    },
+  }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { doc, prev, next } = Astro.props;
+const { Content } = await render(doc);
+---
+
+<DocsLayout
+  title={doc.data.title}
+  description={doc.data.description}
+  breadcrumb={sidebarLabel(doc)}
+  activeId={doc.id}
+  lede={doc.data.description}
+  prev={prev ? { title: sidebarLabel(prev), href: docHref(prev) } : null}
+  next={next ? { title: sidebarLabel(next), href: docHref(next) } : null}
+>
+  <div class="docs-prose">
+    <Content />
+  </div>
+</DocsLayout>
