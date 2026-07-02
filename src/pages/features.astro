@@ -1,0 +1,84 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import CtaSection from "../components/CtaSection.astro";
+import Icon from "../components/Icon.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+
+const features = [
+  {
+    icon: "boxes",
+    title: "Kubernetes-native by design",
+    body: "Seven purpose-built Custom Resource Definitions — GameServer, GameTemplate, Backup, BackupSchedule, Restore, Module, and ModuleSource — are reconciled by a single controller-runtime operator. Whether you create a server through the dashboard or with kubectl apply, the outcome is identical: the operator is the single source of truth.",
+  },
+  {
+    icon: "layers",
+    title: "Scales from homelab to production",
+    body: "The exact same CRDs, controllers, and Helm chart that run on a single-node k3s homelab also run on a multi-node production cluster. There's no separate 'production mode' to migrate to — StatefulSets, PVCs, and rolling upgrades from day one.",
+  },
+  {
+    icon: "terminal",
+    title: "Live console & RCON",
+    body: "An in-pod agent sidecar streams stdout/stderr over WebSocket in real time and accepts RCON commands directly from the browser — no SSH, no kubectl exec, no separate RCON client required.",
+  },
+  {
+    icon: "folder-code",
+    title: "In-browser file manager",
+    body: "Browse, edit, upload, and download files on a running server's data volume straight from the dashboard, with a full Monaco editor — the same engine behind VS Code — for config files, scripts, and datapacks.",
+  },
+  {
+    icon: "archive-restore",
+    title: "Backups & one-click restore",
+    body: "Scheduled or on-demand snapshots are pushed to any S3-compatible storage backend using restic, giving you deduplicated, encrypted, incremental backups. Restoring is a single click from the dashboard's Backups tab.",
+  },
+  {
+    icon: "puzzle",
+    title: "Game module system",
+    body: "Game server templates are versioned, signed OCI bundles — the same distribution model as container images. Minecraft, Valheim, and Terraria ship out of the box, and the open template format supports any game with a config file and a start command.",
+  },
+  {
+    icon: "shield-check",
+    title: "RBAC + OIDC auth",
+    body: "Authenticate with local accounts or federate through OIDC — Keycloak, Google, or GitHub. Three built-in roles (admin, operator, viewer) scope access per namespace, so a shared cluster can host multiple teams safely.",
+  },
+  {
+    icon: "activity",
+    title: "Audit logging & observability",
+    body: "Every mutating API request is logged to the database and exportable as CSV or JSON, with optional mirroring to stdout, a webhook, or syslog. Fleet-wide Prometheus metrics and a bundled Grafana dashboard come from the same install.",
+  },
+];
+---
+
+<MarketingLayout
+  title="Features — Gameplane"
+  description="Every feature you need to run a fleet of game servers on Kubernetes: CRDs and an operator, live console, file manager, backups, modules, RBAC, and observability."
+>
+  <section class="flex flex-col items-center gap-8 px-6 pb-16 pt-12 md:gap-12 md:px-20 md:pb-24 md:pt-20">
+    <SectionHeader
+      eyebrow="FEATURES"
+      title="Every feature you need to run a fleet of game servers"
+      subtitle="From provisioning to backups, RBAC to observability — a closer look at how each piece works."
+    />
+
+    <div class="flex w-full max-w-[840px] flex-col gap-8 md:gap-10">
+      {
+        features.map((feature) => (
+          <div class="flex gap-4 md:gap-6">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-secondary md:h-14 md:w-14">
+              <Icon name={feature.icon} class="h-[22px] w-[22px] text-primary md:h-[26px] md:w-[26px]" />
+            </div>
+            <div class="flex flex-col gap-2">
+              <h2 class="font-primary text-lg font-semibold text-foreground md:text-xl">
+                {feature.title}
+              </h2>
+              <p class="text-sm leading-relaxed text-muted-foreground">{feature.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="w-full pt-6 md:pt-12">
+      <CtaSection />
+    </div>
+  </section>
+</MarketingLayout>
