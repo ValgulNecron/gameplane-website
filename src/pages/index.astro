@@ -1,51 +1,158 @@
 ---
-import "../styles/global.css";
-import { GITHUB_URL } from "../config";
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import Badge from "../components/Badge.astro";
+import Button from "../components/Button.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import Icon from "../components/Icon.astro";
+import ScreenshotFrame from "../components/ScreenshotFrame.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import Terminal from "../components/Terminal.astro";
+import { GITHUB_URL, VERSION } from "../config";
 import { withBase } from "../lib/url";
+
+const chartVersion = VERSION.replace(/^v/, "");
+const helmCommand = `helm upgrade --install gameplane oci://ghcr.io/valgulnecron/charts/gameplane --version ${chartVersion} --namespace gameplane-system --create-namespace`;
+
+const features = [
+  {
+    icon: "boxes",
+    title: "Kubernetes-native by design",
+    body: "Seven purpose-built CRDs — GameServer, GameTemplate, Backup, BackupSchedule, Restore, Module, ModuleSource — reconciled by one operator. kubectl apply and the dashboard always agree.",
+    shortBody: "Seven CRDs reconciled by one operator. kubectl and the dashboard always agree.",
+  },
+  {
+    icon: "layers",
+    title: "Homelab to production",
+    body: "The same operational model runs on a single-node k3s cluster or a multi-node production cluster — no rearchitecting required.",
+    shortBody: "Same control plane, single-node k3s to multi-node production.",
+  },
+  {
+    icon: "terminal",
+    title: "Live console & RCON",
+    body: "Stream stdout/stderr over WebSocket and send RCON commands in real time via an in-pod agent sidecar.",
+    shortBody: "Stream logs and send RCON commands from the browser.",
+  },
+  {
+    icon: "folder-code",
+    title: "In-browser file manager",
+    body: "Browse, edit, upload, and download server files from the dashboard with a built-in Monaco editor.",
+    shortBody: "Browse and edit server files with a built-in Monaco editor.",
+  },
+  {
+    icon: "archive-restore",
+    title: "Backups & one-click restore",
+    body: "Scheduled or on-demand restic-backed snapshots to any S3-compatible storage, with one-click restore.",
+    shortBody: "Scheduled restic-backed snapshots, one-click restore.",
+  },
+  {
+    icon: "puzzle",
+    title: "Game module system",
+    body: "Versioned templates distributed as OCI bundles. Minecraft, Valheim, and Terraria ship out of the box — bring your own game via the template format.",
+    shortBody: "Minecraft, Valheim, Terraria — open template format for more.",
+  },
+  {
+    icon: "shield-check",
+    title: "RBAC + OIDC auth",
+    body: "Local accounts or OIDC (Keycloak, Google, GitHub), three built-in roles, namespace-scoped authorization.",
+    shortBody: "Local or OIDC login, three roles, per-namespace scope.",
+  },
+  {
+    icon: "activity",
+    title: "Audit logging & observability",
+    body: "Every mutating request is logged and exportable. Prometheus metrics, a Grafana dashboard, and alerting rules included.",
+    shortBody: "Exportable audit trail, Prometheus + Grafana included.",
+  },
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Gameplane — Kubernetes-native game server hosting</title>
-    <meta
-      name="description"
-      content="Gameplane is an open-source, Kubernetes-native game server control panel. Scale from a k3s homelab to a production cluster."
-    />
-  </head>
-  <body>
-    <main class="flex min-h-screen flex-col items-center justify-center gap-6 px-6">
-      <div class="flex items-center gap-3">
-        <div class="flex h-10 w-10 items-center justify-center rounded-md bg-primary/15">
-          <svg
-            class="h-5 w-5 text-primary"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path
-              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
-            ></path>
-            <path d="m9 12 2 2 4-4"></path>
-          </svg>
-        </div>
-        <span class="font-primary text-2xl font-semibold">gameplane</span>
-      </div>
-      <p class="max-w-md text-center text-muted-foreground">
-        Kubernetes-native game server hosting. The website is under construction — in the meantime,
-        find the project on GitHub.
-      </p>
-      <a
-        class="rounded-pill border border-border px-5 py-2 font-primary text-sm hover:border-primary"
-        href={GITHUB_URL}>GitHub →</a
+<MarketingLayout
+  title="Gameplane — Kubernetes-native game server hosting"
+  description="Gameplane is an open-source, self-hosted game server control panel built on Kubernetes CRDs and an operator. Scale from a k3s homelab to a production cluster."
+>
+  <!-- Hero -->
+  <section class="flex flex-col items-center px-6 pb-14 pt-12 md:px-20 md:pb-24 md:pt-24">
+    <div class="flex w-full max-w-3xl flex-col items-center gap-5 md:gap-6">
+      <Badge>
+        <span class="md:hidden">{VERSION}</span>
+        <span class="hidden md:inline">{VERSION} — actively developed</span>
+      </Badge>
+      <h1
+        class="text-center font-primary text-[32px] font-bold leading-[1.15] tracking-tight text-foreground md:text-6xl md:leading-[1.05]"
       >
-    </main>
-  </body>
-</html>
+        Kubernetes-native<br class="hidden md:block" />
+        game server hosting.
+      </h1>
+      <p class="max-w-[620px] text-center text-sm leading-normal text-muted-foreground md:hidden">
+        Open-source, self-hosted, built on CRDs and an operator. Scale from a k3s homelab to
+        production.
+      </p>
+      <p
+        class="hidden max-w-[620px] text-center text-lg leading-normal text-muted-foreground md:block"
+      >
+        Open-source, self-hosted, and built on CRDs plus an operator — kubectl and the dashboard
+        always agree. Scale from a k3s homelab to a production cluster.
+      </p>
+      <div class="mt-2 flex w-full flex-col gap-3 md:mt-6 md:w-auto md:flex-row md:gap-4">
+        <Button variant="primary" size="lg" href={GITHUB_URL}>
+          <Icon name="github" class="h-5 w-5 md:h-6 md:w-6" />
+          GitHub
+        </Button>
+        <Button variant="outline" size="lg" disabled>
+          <Icon name="play" class="h-5 w-5 md:h-6 md:w-6" />
+          Demo
+        </Button>
+      </div>
+      <p class="hidden text-xs text-muted-foreground md:block">
+        Issues and PRs welcome — beta software, expect rough edges.
+      </p>
+    </div>
+
+    <div class="mt-16 hidden w-full max-w-[1100px] md:block">
+      <ScreenshotFrame
+        address="app.gameplane.dev"
+        placeholder="Dashboard preview — Servers list view"
+        eager
+      />
+    </div>
+  </section>
+
+  <!-- Features (light band) -->
+  <section class="theme-light bg-background px-6 py-12 md:px-20 md:py-24">
+    <div class="mx-auto flex max-w-[1280px] flex-col gap-6 md:gap-12">
+      <SectionHeader
+        eyebrow="FEATURES"
+        title="Everything you need to operate game servers on Kubernetes"
+        subtitle="From provisioning to backups, RBAC to observability — the full operational lifecycle, in one panel."
+      />
+      <div class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
+        {features.map((feature) => <FeatureCard {...feature} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Install -->
+  <section class="flex flex-col items-center gap-5 px-6 py-12 md:gap-8 md:px-20 md:py-24">
+    <SectionHeader
+      title="Install with one Helm command"
+      subtitle="Gameplane ships as a Helm chart, published as an OCI artifact. Point it at your cluster and you're running in minutes."
+    />
+    <Terminal title="terminal" copyText={helmCommand} class="w-full max-w-[760px]">
+      <div class="flex flex-col gap-1">
+        <span class="text-primary">$ helm upgrade --install gameplane \</span>
+        <span class="text-white">&nbsp;&nbsp;&nbsp;&nbsp;oci://ghcr.io/valgulnecron/charts/gameplane \</span>
+        <span class="text-muted-foreground">&nbsp;&nbsp;&nbsp;&nbsp;--version {chartVersion} \</span>
+        <span class="text-muted-foreground"
+          >&nbsp;&nbsp;&nbsp;&nbsp;--namespace gameplane-system --create-namespace</span
+        >
+      </div>
+    </Terminal>
+    <p class="text-center text-[13px] text-muted-foreground">
+      GitOps-friendly — apply the CRDs directly with kubectl apply -f if you prefer plain
+      manifests.
+    </p>
+    <Button variant="ghost" href={withBase("/docs/getting-started/")}>
+      Read the install docs
+      <Icon name="arrow-right" class="h-4 w-4" />
+    </Button>
+  </section>
+</MarketingLayout>
