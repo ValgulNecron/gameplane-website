@@ -1,0 +1,116 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import Badge from "../components/Badge.astro";
+import CtaSection from "../components/CtaSection.astro";
+import Icon from "../components/Icon.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { withBase } from "../lib/url";
+
+const games = [
+  {
+    icon: "box",
+    version: "v2.4.0",
+    title: "Minecraft (Java Edition)",
+    blurb:
+      "Vanilla, Paper, Spigot, Bukkit, Purpur, Forge, Fabric, and Quilt servers with a version and loader picker.",
+    features: [
+      "Version + loader picker",
+      "In-app Modrinth mod browser",
+      "RCON console + player moderation",
+      "10 GiB persistent storage",
+    ],
+  },
+  {
+    icon: "sword",
+    version: "v2.3.0",
+    title: "Valheim (Dedicated)",
+    blurb:
+      "Valheim dedicated server with a stable / public-test channel picker and crossplay support.",
+    features: [
+      "Stable & Public Test channels",
+      "BepInEx mod manager via Thunderstore",
+      "Crossplay-friendly",
+      "5 GiB persistent storage",
+    ],
+  },
+  {
+    icon: "pickaxe",
+    version: "v2.0.0",
+    title: "Terraria",
+    blurb: "Terraria + tModLoader dedicated server with a vanilla / tModLoader version picker.",
+    features: [
+      "Vanilla & tModLoader version picker",
+      "In-app modpack manager",
+      "Console via container stdin",
+      "4 GiB persistent storage",
+    ],
+  },
+];
+---
+
+<MarketingLayout
+  title="Supported games — Gameplane"
+  description="Minecraft (Java), Valheim, and Terraria ship out of the box as versioned OCI modules — and the open template format lets you bring any containerized game."
+>
+  <section
+    class="flex flex-col items-center gap-8 px-6 pb-16 pt-12 md:gap-12 md:px-20 md:pb-24 md:pt-20"
+  >
+    <SectionHeader
+      eyebrow="SUPPORTED GAMES"
+      title="Deploy the games your community plays"
+      subtitle="Three game servers ship out of the box — and the module format is open, so more are just a template away."
+    />
+
+    <div class="grid w-full max-w-[1280px] grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+      {
+        games.map((game) => (
+          <div class="flex flex-col gap-4 rounded-m border border-border bg-card p-6">
+            <div class="flex items-center justify-between">
+              <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-secondary">
+                <Icon name={game.icon} class="h-[26px] w-[26px] text-primary" />
+              </div>
+              <Badge>{game.version}</Badge>
+            </div>
+            <h2 class="font-primary text-lg font-semibold text-foreground">{game.title}</h2>
+            <p class="text-[13px] leading-normal text-muted-foreground">{game.blurb}</p>
+            <ul class="flex flex-col gap-2">
+              {game.features.map((feature) => (
+                <li class="flex items-center gap-2">
+                  <Icon name="check" class="h-3.5 w-3.5 shrink-0 text-primary" />
+                  <span class="text-[13px] text-muted-foreground">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class="flex w-full max-w-[840px] flex-col gap-6 rounded-m border border-border bg-card p-6 md:flex-row md:p-8"
+    >
+      <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-secondary">
+        <Icon name="puzzle" class="h-[26px] w-[26px] text-primary" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <h2 class="font-primary text-lg font-semibold text-foreground">Bring your own game</h2>
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Every module — including these three — is just an OCI bundle: a template.yaml describing
+          the container, config schema, and capabilities, plus a module.yaml with metadata. If a
+          game runs in a container and takes a config file, it can become a Gameplane module.
+        </p>
+        <a
+          class="flex items-center gap-1 font-primary text-[13px] font-medium text-primary hover:underline"
+          href={withBase("/docs/module-authoring/")}
+        >
+          Read the module authoring guide
+          <Icon name="arrow-right" class="h-[13px] w-[13px]" />
+        </a>
+      </div>
+    </div>
+
+    <div class="w-full pt-2 md:pt-4">
+      <CtaSection />
+    </div>
+  </section>
+</MarketingLayout>
