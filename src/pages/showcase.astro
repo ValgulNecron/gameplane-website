@@ -1,0 +1,101 @@
+---
+import MarketingLayout from "../layouts/MarketingLayout.astro";
+import CtaSection from "../components/CtaSection.astro";
+import ScreenshotFrame from "../components/ScreenshotFrame.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+
+const bigShots = [
+  {
+    address: "app.gameplane.dev/servers",
+    placeholderIcon: "list",
+    title: "Fleet overview",
+    caption: "See every server's status, players online, and phase at a glance.",
+  },
+  {
+    address: "app.gameplane.dev/servers/…/console",
+    placeholderIcon: "terminal",
+    title: "Live console",
+    caption: "Stream stdout/stderr and send RCON commands without leaving the browser.",
+  },
+];
+
+const smallShots = [
+  {
+    address: "…/backups",
+    placeholderIcon: "archive-restore",
+    title: "One-click backups",
+    caption: "Trigger, schedule, and restore restic-backed snapshots.",
+  },
+  {
+    address: "app.gameplane.dev/",
+    placeholderIcon: "layout-dashboard",
+    title: "Fleet dashboard",
+    caption: "A cluster-wide view of health, capacity, and recent activity.",
+  },
+  {
+    address: "…/modules",
+    placeholderIcon: "package",
+    title: "Module catalog",
+    caption: "Browse and install versioned, signed game templates.",
+  },
+];
+---
+
+<MarketingLayout
+  title="Showcase — Gameplane"
+  description="A closer look at the Gameplane dashboard — fleet overview, live console, backups, and the module catalog."
+>
+  <section
+    class="flex flex-col items-center gap-8 px-6 pb-16 pt-12 md:gap-12 md:px-20 md:pb-24 md:pt-20"
+  >
+    <SectionHeader
+      eyebrow="IN ACTION"
+      title="See Gameplane in your browser"
+      subtitle="A closer look at the dashboard — from fleet overview to live console."
+    />
+
+    <div class="flex w-full max-w-[1280px] flex-col gap-8">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {
+          bigShots.map((shot) => (
+            <div class="flex flex-col gap-3">
+              <ScreenshotFrame
+                compact
+                address={shot.address}
+                placeholderIcon={shot.placeholderIcon}
+                class="min-h-64 md:min-h-[392px]"
+              />
+              <div class="flex flex-col gap-1">
+                <h2 class="font-primary text-base font-semibold text-foreground">{shot.title}</h2>
+                <p class="text-[13px] text-muted-foreground">{shot.caption}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {
+          smallShots.map((shot) => (
+            <div class="flex flex-col gap-3">
+              <ScreenshotFrame
+                compact
+                address={shot.address}
+                placeholderIcon={shot.placeholderIcon}
+                class="min-h-52 md:min-h-64"
+              />
+              <div class="flex flex-col gap-1">
+                <h2 class="font-primary text-base font-semibold text-foreground">{shot.title}</h2>
+                <p class="text-[13px] text-muted-foreground">{shot.caption}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="w-full pt-2 md:pt-4">
+      <CtaSection />
+    </div>
+  </section>
+</MarketingLayout>
