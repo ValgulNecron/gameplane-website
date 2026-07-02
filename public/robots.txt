@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://valgulnecron.github.io/gameplane-website/sitemap-index.xml

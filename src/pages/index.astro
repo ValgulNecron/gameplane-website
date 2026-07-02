@@ -1,17 +1,51 @@
 ---
-
+import "../styles/global.css";
+import { GITHUB_URL } from "../config";
+import { withBase } from "../lib/url";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Gameplane — Kubernetes-native game server hosting</title>
+    <meta
+      name="description"
+      content="Gameplane is an open-source, Kubernetes-native game server control panel. Scale from a k3s homelab to a production cluster."
+    />
+  </head>
+  <body>
+    <main class="flex min-h-screen flex-col items-center justify-center gap-6 px-6">
+      <div class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-md bg-primary/15">
+          <svg
+            class="h-5 w-5 text-primary"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+            ></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+        </div>
+        <span class="font-primary text-2xl font-semibold">gameplane</span>
+      </div>
+      <p class="max-w-md text-center text-muted-foreground">
+        Kubernetes-native game server hosting. The website is under construction — in the meantime,
+        find the project on GitHub.
+      </p>
+      <a
+        class="rounded-pill border border-border px-5 py-2 font-primary text-sm hover:border-primary"
+        href={GITHUB_URL}>GitHub →</a
+      >
+    </main>
+  </body>
 </html>
