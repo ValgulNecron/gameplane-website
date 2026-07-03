@@ -10,4 +10,4 @@ export const SITE = CUSTOM_DOMAIN ?? "https://valgulnecron.github.io";
 export const BASE = CUSTOM_DOMAIN ? "/" : "/gameplane-website";
 
 export const GITHUB_URL = "https://github.com/ValgulNecron/Gameplane";
-export const VERSION = "v0.2.0-beta.4";
+export const VERSION = "v0.2.0-beta.5";
