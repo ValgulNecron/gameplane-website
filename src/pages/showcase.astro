@@ -3,17 +3,24 @@ import MarketingLayout from "../layouts/MarketingLayout.astro";
 import CtaSection from "../components/CtaSection.astro";
 import ScreenshotFrame from "../components/ScreenshotFrame.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+import serversScreenshot from "../assets/screenshots/servers.png";
+import consoleScreenshot from "../assets/screenshots/console.png";
+import backupsScreenshot from "../assets/screenshots/backups.png";
+import dashboardScreenshot from "../assets/screenshots/dashboard.png";
+import modulesScreenshot from "../assets/screenshots/modules.png";
 
 const bigShots = [
   {
     address: "app.gameplane.dev/servers",
-    placeholderIcon: "list",
+    src: serversScreenshot,
+    alt: "Servers list showing a running Minecraft server",
     title: "Fleet overview",
     caption: "See every server's status, players online, and phase at a glance.",
   },
   {
     address: "app.gameplane.dev/servers/…/console",
-    placeholderIcon: "terminal",
+    src: consoleScreenshot,
+    alt: "Live console streaming RCON output for a running server",
     title: "Live console",
     caption: "Stream stdout/stderr and send RCON commands without leaving the browser.",
   },
@@ -22,19 +29,22 @@ const bigShots = [
 const smallShots = [
   {
     address: "…/backups",
-    placeholderIcon: "archive-restore",
+    src: backupsScreenshot,
+    alt: "Backups page",
     title: "One-click backups",
     caption: "Trigger, schedule, and restore restic-backed snapshots.",
   },
   {
     address: "app.gameplane.dev/",
-    placeholderIcon: "layout-dashboard",
+    src: dashboardScreenshot,
+    alt: "Fleet dashboard showing cluster health and resources",
     title: "Fleet dashboard",
     caption: "A cluster-wide view of health, capacity, and recent activity.",
   },
   {
     address: "…/modules",
-    placeholderIcon: "package",
+    src: modulesScreenshot,
+    alt: "Module catalog with Minecraft, Terraria, and Valheim",
     title: "Module catalog",
     caption: "Browse and install versioned, signed game templates.",
   },
@@ -62,7 +72,8 @@ const smallShots = [
               <ScreenshotFrame
                 compact
                 address={shot.address}
-                placeholderIcon={shot.placeholderIcon}
+                src={shot.src}
+                alt={shot.alt}
                 class="min-h-64 md:min-h-[392px]"
               />
               <div class="flex flex-col gap-1">
@@ -81,7 +92,8 @@ const smallShots = [
               <ScreenshotFrame
                 compact
                 address={shot.address}
-                placeholderIcon={shot.placeholderIcon}
+                src={shot.src}
+                alt={shot.alt}
                 class="min-h-52 md:min-h-64"
               />
               <div class="flex flex-col gap-1">

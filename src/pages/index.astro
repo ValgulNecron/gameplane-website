@@ -9,6 +9,7 @@ import SectionHeader from "../components/SectionHeader.astro";
 import Terminal from "../components/Terminal.astro";
 import { GITHUB_URL, VERSION } from "../config";
 import { withBase } from "../lib/url";
+import serversScreenshot from "../assets/screenshots/servers.png";
 
 const chartVersion = VERSION.replace(/^v/, "");
 const helmCommand = `helm upgrade --install gameplane oci://ghcr.io/valgulnecron/charts/gameplane --version ${chartVersion} --namespace gameplane-system --create-namespace`;
@@ -109,8 +110,9 @@ const features = [
 
     <div class="mt-16 hidden w-full max-w-[1100px] md:block">
       <ScreenshotFrame
-        address="app.gameplane.dev"
-        placeholder="Dashboard preview — Servers list view"
+        address="app.gameplane.dev/servers"
+        src={serversScreenshot}
+        alt="Gameplane dashboard — Servers list showing a running Minecraft server"
         eager
       />
     </div>
