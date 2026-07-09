@@ -9,7 +9,7 @@ import { withBase } from "../lib/url";
 const games = [
   {
     icon: "box",
-    version: "v2.4.0",
+    version: "v2.7.0",
     title: "Minecraft (Java Edition)",
     blurb:
       "Vanilla, Paper, Spigot, Bukkit, Purpur, Forge, Fabric, and Quilt servers with a version and loader picker.",
@@ -35,7 +35,7 @@ const games = [
   },
   {
     icon: "pickaxe",
-    version: "v2.0.0",
+    version: "v2.1.0",
     title: "Terraria",
     blurb: "Terraria + tModLoader dedicated server with a vanilla / tModLoader version picker.",
     features: [
@@ -45,12 +45,38 @@ const games = [
       "4 GiB persistent storage",
     ],
   },
+  {
+    icon: "cpu",
+    version: "v1.1.0",
+    title: "Factorio (Headless)",
+    blurb:
+      "Factorio headless server with a release-channel picker and server settings managed from the wizard.",
+    features: [
+      "Stable / latest / pinned channel picker",
+      "In-app Factorio mod portal browser",
+      "Console via container stdin",
+      "5 GiB persistent storage",
+    ],
+  },
+  {
+    icon: "swords",
+    version: "v1.1.0",
+    title: "Palworld (Dedicated)",
+    blurb:
+      "Palworld dedicated server, installed via steamcmd on first boot, with a save-aware graceful stop.",
+    features: [
+      "RCON console + player moderation",
+      "Save-aware graceful stop",
+      ".pak mod volume with archive install",
+      "20 GiB persistent storage",
+    ],
+  },
 ];
 ---
 
 <MarketingLayout
   title="Supported games — Gameplane"
-  description="Minecraft (Java), Valheim, and Terraria ship out of the box as versioned OCI modules — and the open template format lets you bring any containerized game."
+  description="Five game servers ship out of the box as versioned OCI modules — Minecraft, Valheim, Terraria, Factorio, and Palworld — and the open template format lets you bring any containerized game."
 >
   <section
     class="flex flex-col items-center gap-8 px-6 pb-16 pt-12 md:gap-12 md:px-20 md:pb-24 md:pt-20"
@@ -58,7 +84,7 @@ const games = [
     <SectionHeader
       eyebrow="SUPPORTED GAMES"
       title="Deploy the games your community plays"
-      subtitle="Three game servers ship out of the box — and the module format is open, so more are just a template away."
+      subtitle="Five game servers ship out of the box — and the module format is open, so more are just a template away."
     />
 
     <div class="grid w-full max-w-[1280px] grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
@@ -95,7 +121,7 @@ const games = [
       <div class="flex flex-col gap-2">
         <h2 class="font-primary text-lg font-semibold text-foreground">Bring your own game</h2>
         <p class="text-sm leading-relaxed text-muted-foreground">
-          Every module — including these three — is just an OCI bundle: a template.yaml describing
+          Every module — including these five — is just an OCI bundle: a template.yaml describing
           the container, config schema, and capabilities, plus a module.yaml with metadata. If a
           game runs in a container and takes a config file, it can become a Gameplane module.
         </p>
