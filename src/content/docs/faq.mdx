@@ -7,6 +7,8 @@ icon: circle-help
 sidebarLabel: FAQ
 ---
 
+import { VERSION } from "../../config";
+
 <div class="grid gap-4 md:grid-cols-2 md:gap-8">
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-1">
@@ -19,7 +21,7 @@ sidebarLabel: FAQ
     <div class="flex flex-col gap-1">
       <h3 class="!m-0">Is Gameplane production-ready?</h3>
       <p>
-        It's in beta (v0.2.0-beta.4). Core workflows are feature-complete and tested, but not yet
+        It's in beta ({VERSION}). Core workflows are feature-complete and tested, but not yet
         recommended for unattended production — see the <a href="./roadmap/">Roadmap</a>.
       </p>
     </div>
@@ -38,7 +40,7 @@ sidebarLabel: FAQ
     </div>
     <div class="flex flex-col gap-1">
       <h3 class="!m-0">What database does it use?</h3>
-      <p>SQLite by default, or PostgreSQL — selectable at install time via a Helm value.</p>
+      <p>SQLite by default, and it's the production-tested driver. A PostgreSQL driver exists but is experimental (build-tag-gated, work in progress).</p>
     </div>
     <div class="flex flex-col gap-1">
       <h3 class="!m-0">Can I manage servers without the dashboard?</h3>
