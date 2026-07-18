@@ -13,6 +13,7 @@ interface Props {
 
 const { activeId = "", bare = false } = Astro.props;
 const docs = await getOrderedDocs();
+const overviewActive = activeId === "overview";
 ---
 
 <div class="flex flex-col">
@@ -43,6 +44,22 @@ const docs = await getOrderedDocs();
             <span class="px-4 pb-1 pt-4 font-primary text-xs text-sidebar-foreground/70">
               {section.label}
             </span>
+            {
+              section.id === "start-here" && (
+                <a
+                  class={`flex items-center gap-3 rounded-pill px-4 py-2.5 text-[15px] ${
+                    overviewActive
+                      ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                      : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground"
+                  }`}
+                  href={withBase("/docs/")}
+                  aria-current={overviewActive ? "page" : undefined}
+                >
+                  <Icon name="layout-dashboard" class="h-[18px] w-[18px] shrink-0" />
+                  Overview
+                </a>
+              )
+            }
             {sectionDocs.map((doc) => {
               const active = doc.id === activeId;
               return (

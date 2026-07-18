@@ -1,0 +1,48 @@
+---
+title: Dashboard Tour
+description: Learn how Gameplane organizes clusters, fleet health, global search, activity, and the shortcuts you use every day.
+section: start-here
+order: 1
+icon: layout-dashboard
+---
+
+import CodeLabel from "../../components/docs/CodeLabel.astro";
+import DocsCallout from "../../components/docs/DocsCallout.astro";
+
+<DocsCallout icon="layout-dashboard" title="Start with cluster scope">
+  Start with one cluster selected. Every list, metric, and action inherits that scope.
+</DocsCallout>
+
+## Orientation
+
+The dashboard is a cluster-scoped control surface. Use the top bar to change context without
+losing your place.
+
+- Select the cluster and namespace before inspecting or changing resources.
+- Use global search to jump between servers, modules, users, and operational surfaces.
+- Treat status chips as the current reconciled state, not an optimistic request result.
+
+## Read the fleet at a glance
+
+The home view combines live infrastructure health with product activity so you can spot drift
+before opening a resource.
+
+- Check server and backup phases alongside cluster capacity.
+- Review recent activity before making a second change to the same resource.
+- Follow events and logs when a server is still reconciling or has failed to start.
+
+## Your first operating loop
+
+A healthy workflow moves from intent to reconciliation, then closes the loop with observability
+and recovery.
+
+<CodeLabel>FIRST OPERATING LOOP</CodeLabel>
+
+```text
+01  Choose a cluster and namespace
+02  Create a server from a verified module
+03  Watch events, logs, metrics, and backups
+```
+
+Continue with [Getting Started](./getting-started/) to install Gameplane and create the first
+admin user.

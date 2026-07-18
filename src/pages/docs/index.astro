@@ -1,15 +1,60 @@
 ---
 import DocsLayout from "../../layouts/DocsLayout.astro";
 import Icon from "../../components/Icon.astro";
-import { getOrderedDocs, docHref, sidebarLabel } from "../../lib/docs-nav";
+import { docHref, getOrderedDocs, sidebarLabel } from "../../lib/docs-nav";
 
 const docs = await getOrderedDocs();
 
-// The five entry-point cards the design shows on the docs home.
-const cardIds = ["getting-started", "architecture", "security", "module-authoring", "contributing"];
-const cards = cardIds
-  .map((id) => docs.find((doc) => doc.id === id))
-  .filter((doc) => doc !== undefined);
+const workflowCards = [
+  {
+    id: "getting-started",
+    title: "Install & deploy",
+    description: "Helm, prerequisites, cluster setup, and your first admin user.",
+  },
+  {
+    id: "dashboard-tour",
+    title: "Dashboard & create",
+    description: "Tour the control surface and follow the first operating loop.",
+  },
+  {
+    id: "architecture",
+    title: "Core concepts",
+    description: "Understand the API, operator, agent, and Kubernetes control planes.",
+  },
+  {
+    id: "security",
+    title: "Security & access",
+    description: "Review authentication, RBAC, mTLS, network policies, and verification.",
+  },
+  {
+    id: "module-authoring",
+    title: "Modules & sources",
+    description: "Package versioned OCI templates with metadata and runtime capabilities.",
+  },
+  {
+    id: "contributing",
+    title: "Developer setup",
+    description: "Run the local development loop and follow the design-first contribution flow.",
+  },
+  {
+    id: "comparison",
+    title: "Compare approaches",
+    description: "See how Gameplane differs from single-host game server panels.",
+  },
+  {
+    id: "roadmap",
+    title: "Roadmap & releases",
+    description: "Track beta limitations, completed work, and planned hardening.",
+  },
+  {
+    id: "get-involved",
+    title: "Community",
+    description: "Report bugs, improve docs, publish modules, and contribute code.",
+  },
+].flatMap((card) => {
+  const doc = docs.find((entry) => entry.id === card.id);
+  return doc ? [{ ...card, href: docHref(doc), icon: doc.data.icon }] : [];
+});
 
 const searchIndex = docs.map((doc) => ({
   title: doc.data.title,
@@ -23,45 +68,54 @@ const searchIndex = docs.map((doc) => ({
   title="Documentation"
   description="Everything you need to deploy, operate, extend, and contribute to Gameplane."
   breadcrumb="Docs"
-  heading="Documentation"
-  lede="Everything you need to deploy, operate, extend, and contribute to Gameplane."
+  heading="Build, operate, and extend Gameplane"
+  lede="Task-focused guides for the complete lifecycle — from the first Helm install to fleet operations, recovery, platform administration, and GitOps."
+  activeId="overview"
 >
   <div class="flex flex-col gap-6">
     <label
-      class="flex w-full max-w-[480px] items-center gap-2.5 rounded-m border border-border bg-card px-4 py-3"
+      class="flex w-full max-w-[560px] items-center gap-2.5 rounded-m border border-border bg-card px-4 py-3"
     >
       <Icon name="search" class="h-4 w-4 shrink-0 text-muted-foreground" />
       <input
         id="docs-search"
         class="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
         type="search"
-        placeholder="Search documentation..."
+        placeholder="Search guides, settings, and CRDs..."
         autocomplete="off"
       />
+      <kbd class="rounded border border-border px-1.5 py-0.5 font-primary text-[10px] text-muted-foreground">
+        ⌘K
+      </kbd>
     </label>
 
     <div id="docs-search-results" class="hidden flex-col gap-2"></div>
 
-    <div id="docs-cards" class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
+    <div class="flex items-center justify-between gap-4">
+      <h2 class="font-primary text-[15px] font-semibold text-foreground">Browse by workflow</h2>
+      <span class="font-primary text-[10px] font-semibold tracking-wide text-primary">
+        {docs.length} GUIDES + REFERENCES
+      </span>
+    </div>
+
+    <div id="docs-cards" class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
       {
-        cards.map((doc) => (
+        workflowCards.map((card) => (
           <a
-            class="group flex flex-col gap-3 rounded-m border border-border bg-card p-6 hover:border-muted-foreground"
-            href={docHref(doc)}
+            class="group flex min-h-36 flex-col gap-2 rounded-m border border-border bg-card p-4 hover:border-muted-foreground"
+            href={card.href}
           >
-            <div class="flex h-12 w-12 items-center justify-center rounded-[10px] bg-secondary">
-              <Icon name={doc.data.icon} class="h-[22px] w-[22px] text-primary" />
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex h-9 w-9 items-center justify-center rounded-[10px] bg-secondary">
+                <Icon name={card.icon} class="h-[18px] w-[18px] text-primary" />
+              </div>
+              <Icon
+                name="arrow-right"
+                class="h-4 w-4 text-muted-foreground group-hover:text-primary"
+              />
             </div>
-            <span class="font-primary text-base font-semibold text-foreground">
-              {sidebarLabel(doc)}
-            </span>
-            <span class="text-[13px] leading-snug text-muted-foreground">
-              {doc.data.description}
-            </span>
-            <span class="flex items-center gap-1 font-primary text-[13px] font-medium text-primary">
-              Explore
-              <Icon name="arrow-right" class="h-[13px] w-[13px]" />
-            </span>
+            <span class="font-primary text-sm font-semibold text-foreground">{card.title}</span>
+            <span class="text-[13px] leading-snug text-muted-foreground">{card.description}</span>
           </a>
         ))
       }
@@ -113,5 +167,12 @@ const searchIndex = docs.map((doc) => ({
     results.classList.remove("hidden");
     results.classList.add("flex");
     cards.classList.add("hidden");
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      input?.focus();
+    }
   });
 </script>
