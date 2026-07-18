@@ -131,16 +131,6 @@ const games = [
             </div>
             <h2 class="font-primary text-lg font-semibold text-foreground">{game.title}</h2>
             <p class="text-[13px] leading-normal text-muted-foreground">{game.blurb}</p>
-            {game.features && (
-              <ul class="flex flex-col gap-2">
-                {game.features.map((feature) => (
-                  <li class="flex items-center gap-2">
-                    <Icon name="check" class="h-3.5 w-3.5 shrink-0 text-primary" />
-                    <span class="text-[13px] text-muted-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
           </div>
         ))
       }
