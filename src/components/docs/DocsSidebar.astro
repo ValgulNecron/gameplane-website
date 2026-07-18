@@ -1,7 +1,6 @@
 ---
 import Icon from "../Icon.astro";
 import LogoMark from "../LogoMark.astro";
-import { getOrderedDocs, docHref, sidebarLabel, SECTIONS } from "../../lib/docs-nav";
 import { withBase } from "../../lib/url";
 
 interface Props {
@@ -12,16 +11,75 @@ interface Props {
 }
 
 const { activeId = "", bare = false } = Astro.props;
-const docs = await getOrderedDocs();
-const overviewActive = activeId === "overview";
+
+interface NavLink {
+  label: string;
+  icon: string;
+  href?: string;
+  activeIds?: string[];
+}
+
+const navSections: { label: string; links: NavLink[] }[] = [
+  {
+    label: "START HERE",
+    links: [
+      { label: "Overview", icon: "layout-dashboard", href: withBase("/docs/"), activeIds: ["overview"] },
+      { label: "Getting Started", icon: "rocket", href: withBase("/docs/getting-started/"), activeIds: ["getting-started"] },
+    ],
+  },
+  {
+    label: "CORE CONCEPTS",
+    links: [
+      { label: "Architecture", icon: "network", href: withBase("/docs/architecture/"), activeIds: ["architecture"] },
+      { label: "Security", icon: "shield-check", href: withBase("/docs/security/"), activeIds: ["security"] },
+    ],
+  },
+  {
+    label: "OPERATE",
+    links: [
+      { label: "Servers & Config", icon: "server" },
+      { label: "Console & Logs", icon: "terminal" },
+      { label: "Files & Backups", icon: "folder-archive" },
+      { label: "Network & Automation", icon: "workflow" },
+    ],
+  },
+  {
+    label: "PLATFORM",
+    links: [
+      { label: "Cluster & Storage", icon: "boxes" },
+      { label: "Users & Access", icon: "users" },
+      { label: "Audit & Observability", icon: "activity" },
+    ],
+  },
+  {
+    label: "DEVELOP",
+    links: [
+      { label: "Modules & Sources", icon: "package-plus", href: withBase("/docs/module-authoring/"), activeIds: ["module-authoring"] },
+      { label: "API & Reference", icon: "braces" },
+      { label: "Local Development", icon: "laptop", href: withBase("/docs/contributing/"), activeIds: ["contributing"] },
+      { label: "Component Guides", icon: "blocks" },
+      { label: "Testing & Release", icon: "flask-conical" },
+    ],
+  },
+  {
+    label: "REFERENCE",
+    links: [
+      { label: "Upgrades", icon: "history" },
+      { label: "Troubleshooting", icon: "life-buoy" },
+      { label: "FAQ", icon: "info", href: withBase("/docs/faq/"), activeIds: ["faq"] },
+      { label: "Releases & Roadmap", icon: "milestone", href: withBase("/docs/roadmap/"), activeIds: ["roadmap", "changelog"] },
+      { label: "Community", icon: "heart-handshake", href: withBase("/docs/get-involved/"), activeIds: ["get-involved"] },
+    ],
+  },
+];
 ---
 
 <div class="flex flex-col">
   {
     !bare && (
-      <div class="flex flex-col gap-4 border-b border-sidebar-border p-6">
+      <div class="flex flex-col gap-4 border-b border-border p-6">
         <a class="flex items-center gap-2.5" href={withBase("/docs/")}>
-          <LogoMark size="sm" />
+          <LogoMark size="md" />
           <span class="font-primary text-base font-semibold text-foreground">gameplane</span>
         </a>
         <a
@@ -34,47 +92,33 @@ const overviewActive = activeId === "overview";
       </div>
     )
   }
-  <nav class="flex flex-col gap-1 p-4">
+  <nav class="flex flex-col gap-px px-[14px] py-2">
     {
-      SECTIONS.map((section) => {
-        const sectionDocs = docs.filter((doc) => doc.data.section === section.id);
-        if (sectionDocs.length === 0) return null;
+      navSections.map((section) => {
         return (
           <>
-            <span class="px-4 pb-1 pt-4 font-primary text-xs text-sidebar-foreground/70">
+            <span class="px-2 pb-px pt-2.5 font-primary text-[9px] font-semibold tracking-[0.7px] text-muted-foreground/70">
               {section.label}
             </span>
-            {
-              section.id === "start-here" && (
-                <a
-                  class={`flex items-center gap-3 rounded-pill px-4 py-2.5 text-[15px] ${
-                    overviewActive
-                      ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                      : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground"
-                  }`}
-                  href={withBase("/docs/")}
-                  aria-current={overviewActive ? "page" : undefined}
-                >
-                  <Icon name="layout-dashboard" class="h-[18px] w-[18px] shrink-0" />
-                  Overview
+            {section.links.map((link) => {
+              const active = link.activeIds?.includes(activeId) ?? false;
+              const className = `flex h-[27px] items-center gap-2 rounded-md px-[9px] text-[11.5px] ${
+                active
+                  ? "bg-secondary font-medium text-foreground"
+                  : "text-muted-foreground"
+              }`;
+              const content = (
+                <>
+                  <Icon name={link.icon} class={`h-3.5 w-3.5 shrink-0 ${active ? "text-primary" : "text-muted-foreground"}`} />
+                  {link.label}
+                </>
+              );
+              return link.href ? (
+                <a class={`${className} hover:bg-secondary/60 hover:text-foreground`} href={link.href} aria-current={active ? "page" : undefined}>
+                  {content}
                 </a>
-              )
-            }
-            {sectionDocs.map((doc) => {
-              const active = doc.id === activeId;
-              return (
-                <a
-                  class={`flex items-center gap-3 rounded-pill px-4 py-2.5 text-[15px] ${
-                    active
-                      ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                      : "text-sidebar-foreground/80 hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground"
-                  }`}
-                  href={docHref(doc)}
-                  aria-current={active ? "page" : undefined}
-                >
-                  <Icon name={doc.data.icon} class="h-[18px] w-[18px] shrink-0" />
-                  {sidebarLabel(doc)}
-                </a>
+              ) : (
+                <span class={className} aria-disabled="true">{content}</span>
               );
             })}
           </>

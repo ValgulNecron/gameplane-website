@@ -1,0 +1,121 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import DocsSidebar from "../components/docs/DocsSidebar.astro";
+import { GITHUB_URL } from "../config";
+import { withBase } from "../lib/url";
+
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  activeId?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  home?: boolean;
+}
+
+const {
+  title,
+  description,
+  activeId = "",
+  breadcrumbs = [{ label: "Docs", href: withBase("/docs/") }],
+  home = false,
+} = Astro.props;
+---
+
+<BaseLayout title={`${title} — Gameplane docs`} description={description}>
+  <div class="min-h-screen bg-background lg:flex">
+    <aside
+      class="sticky top-0 hidden h-screen w-[280px] shrink-0 overflow-y-auto border-r border-border bg-sidebar lg:block"
+    >
+      <DocsSidebar activeId={activeId} />
+    </aside>
+
+    <div class="min-w-0 flex-1">
+      <header class="hidden h-16 items-center justify-between border-b border-border px-8 lg:flex">
+        <nav class="flex items-center gap-1.5 text-[13px]" aria-label="Breadcrumb">
+          {
+            breadcrumbs.map((item, index) => (
+              <>
+                {index > 0 && <span class="text-muted-foreground">/</span>}
+                {
+                  item.href && index < breadcrumbs.length - 1 ? (
+                    <a class="text-muted-foreground hover:text-foreground" href={item.href}>{item.label}</a>
+                  ) : (
+                    <span class={index === breadcrumbs.length - 1 ? "font-medium text-foreground" : "text-muted-foreground"}>
+                      {item.label}
+                    </span>
+                  )
+                }
+              </>
+            ))
+          }
+        </nav>
+
+        <div class="flex items-center gap-2">
+          {
+            !home && (
+              <a
+                class="flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground hover:border-muted-foreground hover:text-foreground"
+                href={withBase("/docs/#docs-search")}
+                aria-label="Search documentation"
+              >
+                <Icon name="search" class="h-4 w-4" />
+              </a>
+            )
+          }
+          <a
+            class="flex h-9 w-9 items-center justify-center rounded-md border border-border text-foreground hover:border-muted-foreground"
+            href={GITHUB_URL}
+            aria-label="GitHub"
+          >
+            <Icon name="github" class="h-4 w-4" />
+          </a>
+        </div>
+      </header>
+
+      <header class="flex h-[60px] items-center justify-between border-b border-border px-5 lg:hidden">
+        <a class="flex items-center gap-2" href={withBase("/docs/")}>
+          <span class="flex h-[26px] w-[26px] items-center justify-center rounded-md bg-primary/15">
+            <Icon name="shield-check" class="h-[15px] w-[15px] text-primary" />
+          </span>
+          <span class="font-primary text-xs font-semibold text-foreground">gameplane / docs</span>
+        </a>
+        <div class="flex items-center gap-3">
+          <a class="text-muted-foreground hover:text-foreground" href={withBase("/docs/#docs-search")} aria-label="Search documentation">
+            <Icon name="search" class="h-[18px] w-[18px]" />
+          </a>
+          <button
+            id="docs-nav-toggle"
+            class="text-foreground"
+            type="button"
+            aria-label="Open docs navigation"
+            aria-expanded="false"
+            aria-controls="docs-nav-mobile"
+          >
+            <Icon name="menu" class="h-5 w-5" />
+          </button>
+        </div>
+      </header>
+
+      <div id="docs-nav-mobile" class="hidden border-b border-border bg-sidebar lg:hidden">
+        <DocsSidebar activeId={activeId} bare />
+      </div>
+
+      <slot />
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const toggle = document.getElementById("docs-nav-toggle");
+  const menu = document.getElementById("docs-nav-mobile");
+  toggle?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("hidden") === false;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+</script>

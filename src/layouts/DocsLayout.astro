@@ -1,9 +1,6 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
-import Icon from "../components/Icon.astro";
-import DocsSidebar from "../components/docs/DocsSidebar.astro";
 import DocsPrevNext from "../components/docs/DocsPrevNext.astro";
-import { GITHUB_URL } from "../config";
+import DocsShell from "./DocsShell.astro";
 import { withBase } from "../lib/url";
 
 interface Link {
@@ -37,78 +34,23 @@ const {
   prev = null,
   next = null,
 } = Astro.props;
+
+const breadcrumbs = [
+  { label: "Docs", href: withBase("/docs/") },
+  ...(breadcrumb === "Docs" ? [] : [{ label: breadcrumb }]),
+];
 ---
 
-<BaseLayout title={`${title} — Gameplane docs`} description={description}>
-  <div class="flex min-h-screen">
-    <aside
-      class="sticky top-0 hidden h-screen w-[280px] shrink-0 overflow-y-auto border-r border-sidebar-border bg-sidebar lg:block"
-    >
-      <DocsSidebar activeId={activeId} />
-    </aside>
-
-    <div class="min-w-0 flex-1">
-      <div
-        class="flex h-16 items-center justify-between border-b border-border px-5 md:px-8"
-      >
-        <div class="flex items-center gap-3">
-          <button
-            id="docs-nav-toggle"
-            class="text-foreground lg:hidden"
-            type="button"
-            aria-label="Open docs navigation"
-            aria-expanded="false"
-            aria-controls="docs-nav-mobile"
-          >
-            <Icon name="menu" class="h-5 w-5" />
-          </button>
-          <div class="flex items-center gap-1.5 text-[13px]">
-            <a class="text-muted-foreground hover:text-foreground" href={withBase("/docs/")}
-              >Docs</a
-            >
-            {
-              breadcrumb !== "Docs" && (
-                <>
-                  <span class="text-muted-foreground">/</span>
-                  <span class="font-medium text-foreground">{breadcrumb}</span>
-                </>
-              )
-            }
-          </div>
-        </div>
-        <a
-          class="flex h-9 w-9 items-center justify-center rounded-pill border border-border text-foreground hover:border-muted-foreground"
-          href={GITHUB_URL}
-          aria-label="GitHub"
-        >
-          <Icon name="github" class="h-[18px] w-[18px]" />
-        </a>
-      </div>
-
-      <div id="docs-nav-mobile" class="hidden border-b border-border bg-sidebar lg:!hidden">
-        <DocsSidebar activeId={activeId} bare />
-      </div>
-
-      <main class="mx-auto flex max-w-[880px] flex-col gap-6 p-5 md:p-8">
-        <div class="flex flex-col gap-2">
-          <span class="font-primary text-xs font-semibold text-primary">{eyebrow}</span>
-          <h1 class="font-primary text-[26px] font-bold text-foreground md:text-[32px]">
-            {heading}
-          </h1>
-          {lede && <p class="max-w-[640px] text-base text-muted-foreground">{lede}</p>}
-        </div>
-        <slot />
-        {(prev || next) && <DocsPrevNext prev={prev} next={next} />}
-      </main>
+<DocsShell title={title} description={description} activeId={activeId} breadcrumbs={breadcrumbs}>
+  <main class="mx-auto flex w-full max-w-[780px] flex-col gap-6 p-5 lg:p-8">
+    <div class="flex flex-col gap-2">
+      <span class="font-primary text-[11px] font-semibold tracking-[0.8px] text-primary">{eyebrow}</span>
+      <h1 class="font-primary text-[26px] font-bold leading-[1.1] text-foreground lg:text-[30px]">
+        {heading}
+      </h1>
+      {lede && <p class="max-w-[640px] text-[15px] leading-[1.45] text-muted-foreground">{lede}</p>}
     </div>
-  </div>
-</BaseLayout>
-
-<script>
-  const toggle = document.getElementById("docs-nav-toggle");
-  const menu = document.getElementById("docs-nav-mobile");
-  toggle?.addEventListener("click", () => {
-    const open = menu?.classList.toggle("hidden") === false;
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-</script>
+    <slot />
+    {(prev || next) && <DocsPrevNext prev={prev} next={next} />}
+  </main>
+</DocsShell>

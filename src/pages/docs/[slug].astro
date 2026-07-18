@@ -6,14 +6,19 @@ import { getOrderedDocs, docHref, sidebarLabel } from "../../lib/docs-nav";
 
 export async function getStaticPaths() {
   const docs = await getOrderedDocs();
-  return docs.map((doc, index) => ({
-    params: { slug: doc.id },
-    props: {
-      doc,
-      prev: index > 0 ? docs[index - 1] : null,
-      next: index < docs.length - 1 ? docs[index + 1] : null,
-    },
-  }));
+  return docs
+    .filter((doc) => doc.id !== "dashboard-tour")
+    .map((doc) => {
+      const index = docs.findIndex((entry) => entry.id === doc.id);
+      return {
+        params: { slug: doc.id },
+        props: {
+          doc,
+          prev: index > 0 ? docs[index - 1] : null,
+          next: index < docs.length - 1 ? docs[index + 1] : null,
+        },
+      };
+    });
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
