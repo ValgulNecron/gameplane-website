@@ -38,7 +38,7 @@ const navSections: { label: string; links: NavLink[] }[] = [
     label: "OPERATE",
     links: [
       { label: "Servers & Config", icon: "server" },
-      { label: "Console & Logs", icon: "terminal" },
+      { label: "Console & Logs", icon: "terminal", href: withBase("/docs/console-protocols/"), activeIds: ["console-protocols"] },
       { label: "Files & Backups", icon: "folder-archive" },
       { label: "Network & Automation", icon: "workflow" },
     ],
@@ -46,7 +46,7 @@ const navSections: { label: string; links: NavLink[] }[] = [
   {
     label: "PLATFORM",
     links: [
-      { label: "Cluster & Storage", icon: "boxes" },
+      { label: "Cluster & Storage", icon: "boxes", href: withBase("/docs/multi-cluster/"), activeIds: ["multi-cluster"] },
       { label: "Users & Access", icon: "users" },
       { label: "Audit & Observability", icon: "activity" },
     ],
@@ -55,9 +55,9 @@ const navSections: { label: string; links: NavLink[] }[] = [
     label: "DEVELOP",
     links: [
       { label: "Modules & Sources", icon: "package-plus", href: withBase("/docs/module-authoring/"), activeIds: ["module-authoring"] },
-      { label: "API & Reference", icon: "braces" },
+      { label: "API & Reference", icon: "braces", href: withBase("/docs/crd-catalog/"), activeIds: ["crd-catalog"] },
       { label: "Local Development", icon: "laptop", href: withBase("/docs/contributing/"), activeIds: ["contributing"] },
-      { label: "Component Guides", icon: "blocks" },
+      { label: "Component Guides", icon: "blocks", href: withBase("/docs/extension-services/"), activeIds: ["extension-services"] },
       { label: "Testing & Release", icon: "flask-conical" },
     ],
   },

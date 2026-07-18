@@ -1,0 +1,28 @@
+---
+title: Console Protocols
+description: The dashboard console speaks each game's native remote-console protocol, selected per template.
+section: core-concepts
+order: 4
+icon: terminal
+sidebarLabel: Console protocols
+---
+
+## One console, seven protocols
+
+A `GameTemplate`'s `spec.rcon.protocol` selects the wire protocol the agent sidecar speaks to a game's console port. The dashboard's Console tab — and every RCON-backed capability, from player moderation to the quiesce step a backup runs before snapshotting — uses whichever protocol the template declares.
+
+| Protocol | Example game(s) | Transport | Default port | Password source |
+|---|---|---|---|---|
+| `source` | Minecraft, Counter-Strike 2, V Rising | Valve/Source RCON (TCP) | 25575 (Factorio: 27015) | `passwordEnv` / `passwordFile` |
+| `telnet` | 7 Days to Die | line-based TCP | 8081 | `passwordEnv` |
+| `websocket` | Rust | Facepunch WebRcon (WebSocket) | 28016 | `passwordEnv` |
+| `battleye` | DayZ | BattlEye RCon (UDP) | 2305 | `passwordEnv` |
+| `satisfactory` | Satisfactory | HTTPS function-call API | 7777 | `passwordFile` (admin password is claimed in-game, not injected) |
+| `palworld` | Palworld | REST admin API (HTTP Basic) | 8212 | `passwordEnv` |
+| `none` | Terraria, Don't Starve Together | — (stdin / pty) | — | — |
+
+## Stdin consoles
+
+Games with no usable remote console set `rcon.protocol: none`. If they still need interactive commands, the template also sets `consoleMode: pty` — the dashboard then attaches to the pod's stdin/stdout over the Kubernetes pod-attach API instead of opening a network socket, so a `pty` game gets a real console without a console *protocol*.
+
+Template authors: the full `rcon` spec — per-protocol YAML, the `passwordEnv` vs `passwordFile` precedence, and how `capabilities` (player actions, status metrics, custom buttons) build on top of it — is documented in [Module Authoring](./module-authoring/) and the [module authoring guide on GitHub](https://github.com/ValgulNecron/Gameplane/blob/main/docs/module-authoring.md#rcon).
