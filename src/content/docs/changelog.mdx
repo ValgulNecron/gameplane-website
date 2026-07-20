@@ -9,7 +9,20 @@ icon: history
 import ChangeEntry from "../../components/docs/ChangeEntry.astro";
 
 <div class="flex flex-col">
-  <ChangeEntry version="v0.2.0-beta.5" date="2026-07-03" highlight>
+  <ChangeEntry version="v0.2.0-beta.7" date="2026-07-18" highlight>
+    Stabilization release: full audit of code, API, and docs. Fixed WebSocket RBAC cluster bypass,
+    Hostport now binds only advertised ports, SSE/WebSocket streams no longer force-closed at 60s,
+    and resolved Modules page crash. Docs refreshed for all 8 CRDs and clarified SQLite as
+    production-tested.
+  </ChangeEntry>
+  <ChangeEntry version="v0.2.0-beta.6" date="2026-07-17">
+    Major release: four new console protocols (Rust WebRcon, DayZ BattlEye, Satisfactory HTTPS,
+    Palworld REST), per-GameServer RBAC with owners/collaborators, read-only MCP server, native
+    S3 audit sink, OIDC provider management with group→role mapping, ntfy notifications, mod
+    install manifests and one-click updates, Factorio mod-portal registry, version switching,
+    and admin System Logs.
+  </ChangeEntry>
+  <ChangeEntry version="v0.2.0-beta.5" date="2026-07-03">
     Added: this website, the published cosign verification key (cosign.pub, with post-sign
     verification in CI), automatic GitHub Release pages, and the last UI-audit parity items —
     login password visibility toggle, user emails on the Users page, port overrides in the

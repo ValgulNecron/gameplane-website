@@ -31,4 +31,8 @@ A dashboard action cascades: API → Operator → StatefulSet → Agent → hear
 
 ModuleSource CRs declare where templates come from — OCI registry, git, HTTP, local, or dashboard upload.
 
+## Optional components
+
+Beyond the core operator, API, and agent, Gameplane ships optional services for specialized tasks. Optional components (mcp-server, telemetry-receiver, audit-syslog-bridge) are covered in [Extension services](./extension-services/). For a full catalog of all CRDs and their fields, see the [CRD catalog](./crd-catalog/).
+
 The full component reference — data-flow walkthroughs, CRD relationships, and security boundaries — lives in the [architecture doc on GitHub](https://github.com/ValgulNecron/Gameplane/blob/main/docs/architecture.md).

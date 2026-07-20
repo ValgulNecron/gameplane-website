@@ -1,0 +1,69 @@
+---
+title: Multi-cluster
+description: Manage the local cluster plus any number of registered remote Kubernetes clusters from one dashboard.
+section: core-concepts
+order: 3
+icon: boxes
+sidebarLabel: Multi-cluster
+---
+
+import CodeLabel from "../../components/docs/CodeLabel.astro";
+import DocsCallout from "../../components/docs/DocsCallout.astro";
+
+## One dashboard, many clusters
+
+Gameplane manages the local cluster plus any number of registered remote clusters from a single dashboard. Each target cluster runs its own operator instance reconciling its own GameServers; the control-plane API dispatches requests to the right cluster through a `?cluster=<name>` selector, with the built-in `local` cluster targeting the same cluster the API runs on.
+
+## Registering a cluster
+
+Two steps: a labeled Secret holding the remote kubeconfig, then a cluster-scoped `Cluster` CR that references it.
+
+<CodeLabel>CLUSTER KUBECONFIG SECRET</CodeLabel>
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-cluster-kubeconfig
+  namespace: gameplane-system
+  labels:
+    gameplane.local/cluster-kubeconfig: "true"
+type: Opaque
+data:
+  kubeconfig: <base64-encoded kubeconfig for the target cluster>
+```
+
+<CodeLabel>CLUSTER CR</CodeLabel>
+
+```yaml
+apiVersion: gameplane.local/v1alpha1
+kind: Cluster
+metadata:
+  name: my-cluster
+spec:
+  displayName: My Cluster
+  kubeconfigSecret:
+    name: my-cluster-kubeconfig
+```
+
+The `gameplane.local/cluster-kubeconfig` label guard means a `Cluster` CR can only ever reference a Secret an admin has explicitly marked for this purpose, not an arbitrary Secret in the namespace. See the [CRD catalog](./crd-catalog/) for the full `Cluster` spec.
+
+## Health and status
+
+The operator health-checks every registered cluster and reconciles `status.phase` (`Unknown` / `Healthy` / `Unhealthy`) plus `status.serverVersion`, so connectivity shows up directly in the dashboard's cluster selector — no separate ping needed. Namespaced operations (GameServers, Backups, and the rest) route to whichever cluster is selected, and RBAC role bindings are evaluated per cluster.
+
+## Boundaries
+
+- **Control-plane state stays local.** Users, sessions, the audit log, config, and the database live only on the local cluster — remote clusters run game workloads, nothing else.
+- **No implicit RBAC.** Registering a cluster grants no access to it; role bindings created before a cluster was registered stay pinned to `local`, and a new cluster needs its own bindings.
+- **Streams are local-cluster-scoped today.** Console, log, and file WebSocket streams only work against the local cluster — remote clusters are registered and health-checked, but not yet streamed to.
+
+<DocsCallout icon="shield-alert" title="beta.7 hardening">
+  The console/logs/files/players/actions/status/mods WebSocket routes, and the mod-id / mod-update
+  handlers, now reject a `?cluster=` selector that isn't the local cluster. These handlers only ever
+  act on the control plane's own cluster, so a caller-supplied remote selector could previously
+  satisfy RBAC while still reaching same-named **local** servers. Single-cluster installs were
+  unaffected.
+</DocsCallout>
+
+New to Gameplane? Start with [Getting Started](./getting-started/) to stand up the local cluster first. The full registration walkthrough and prerequisites live in the [install docs on GitHub](https://github.com/ValgulNecron/Gameplane/blob/main/docs/install.md#registering-an-additional-cluster).

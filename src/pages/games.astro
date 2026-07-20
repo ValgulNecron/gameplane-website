@@ -9,74 +9,106 @@ import { withBase } from "../lib/url";
 const games = [
   {
     icon: "box",
-    version: "v2.7.0",
+    version: "v2.8.1",
     title: "Minecraft (Java Edition)",
-    blurb:
-      "Vanilla, Paper, Spigot, Bukkit, Purpur, Forge, Fabric, and Quilt servers with a version and loader picker.",
-    features: [
-      "Version + loader picker",
-      "In-app Modrinth mod browser",
-      "RCON console + player moderation",
-      "10 GiB persistent storage",
-    ],
+    blurb: "Vanilla, Paper, Fabric, Forge & more with a version+loader picker and Modrinth browse.",
   },
   {
     icon: "sword",
-    version: "v2.3.0",
+    version: "v2.3.3",
     title: "Valheim (Dedicated)",
-    blurb:
-      "Valheim dedicated server with a stable / public-test channel picker and crossplay support.",
-    features: [
-      "Stable & Public Test channels",
-      "BepInEx mod manager via Thunderstore",
-      "Crossplay-friendly",
-      "5 GiB persistent storage",
-    ],
+    blurb: "Stable/public-test channels, BepInEx mods, in-app Thunderstore browse.",
   },
   {
     icon: "pickaxe",
-    version: "v2.1.0",
+    version: "v2.2.0",
     title: "Terraria",
-    blurb: "Terraria + tModLoader dedicated server with a vanilla / tModLoader version picker.",
-    features: [
-      "Vanilla & tModLoader version picker",
-      "In-app modpack manager",
-      "Console via container stdin",
-      "4 GiB persistent storage",
-    ],
+    blurb: "Vanilla + tModLoader with a version picker and a ModPacks volume.",
   },
   {
     icon: "cpu",
-    version: "v1.1.0",
+    version: "v1.1.2",
     title: "Factorio (Headless)",
-    blurb:
-      "Factorio headless server with a release-channel picker and server settings managed from the wizard.",
-    features: [
-      "Stable / latest / pinned channel picker",
-      "In-app Factorio mod portal browser",
-      "Console via container stdin",
-      "5 GiB persistent storage",
-    ],
+    blurb: "Channel picker, wizard-managed settings, in-app mod-portal browse.",
   },
   {
     icon: "swords",
-    version: "v1.1.0",
+    version: "v1.2.0",
     title: "Palworld (Dedicated)",
-    blurb:
-      "Palworld dedicated server, installed via steamcmd on first boot, with a save-aware graceful stop.",
-    features: [
-      "RCON console + player moderation",
-      "Save-aware graceful stop",
-      ".pak mod volume with archive install",
-      "20 GiB persistent storage",
-    ],
+    blurb: "REST-API console, save-aware graceful stop, .pak mod volume.",
+  },
+  {
+    icon: "axe",
+    version: "v1.1.0",
+    title: "Rust",
+    blurb: "WebRcon console, Oxide plugin volume, save-then-quit stop.",
+  },
+  {
+    icon: "bug",
+    version: "v1.1.1",
+    title: "DayZ",
+    blurb: "BattlEye RCon console with SIGTERM-safe restarts.",
+  },
+  {
+    icon: "package",
+    version: "v1.1.1",
+    title: "Satisfactory (Dedicated)",
+    blurb: "Stable/experimental branches; installs via steamcmd on first boot.",
+  },
+  {
+    icon: "gamepad-2",
+    version: "v1.1.0",
+    title: "Counter-Strike 2",
+    blurb: "Source RCON with a Metamod/CS# plugins volume.",
+  },
+  {
+    icon: "bug",
+    version: "v1.0.8",
+    title: "ARK: Survival Ascended",
+    blurb: "RCON console/moderation; CurseForge mods via -mods=.",
+  },
+  {
+    icon: "bug",
+    version: "v1.0.5",
+    title: "Project Zomboid",
+    blurb: "RCON console/moderation, Steam Workshop mods.",
+  },
+  {
+    icon: "bug",
+    version: "v2.0.4",
+    title: "7 Days to Die",
+    blurb: "Telnet console, persistent world saves, mod installers.",
+  },
+  {
+    icon: "gamepad-2",
+    version: "v2.0.2",
+    title: "Garry's Mod",
+    blurb: "Workshop addon collections via launch args.",
+  },
+  {
+    icon: "box",
+    version: "v1.0.2",
+    title: "Enshrouded",
+    blurb: "Dedicated survival server, env-configured.",
+  },
+  {
+    icon: "box",
+    version: "v1.1.0",
+    title: "Don't Starve Together",
+    blurb: "Dedicated co-op survival server.",
+  },
+  {
+    icon: "sword",
+    version: "v1.0.2",
+    title: "V Rising",
+    blurb: "Source RCON with a safe shutdown sequence.",
   },
 ];
 ---
 
 <MarketingLayout
   title="Supported games — Gameplane"
-  description="Five game servers ship out of the box as versioned OCI modules — Minecraft, Valheim, Terraria, Factorio, and Palworld — and the open template format lets you bring any containerized game."
+  description="Sixteen game servers ship out of the box as versioned OCI modules, and the open template format lets you bring any containerized game."
 >
   <section
     class="flex flex-col items-center gap-8 px-6 pb-16 pt-12 md:gap-12 md:px-20 md:pb-24 md:pt-20"
@@ -84,7 +116,7 @@ const games = [
     <SectionHeader
       eyebrow="SUPPORTED GAMES"
       title="Deploy the games your community plays"
-      subtitle="Five game servers ship out of the box — and the module format is open, so more are just a template away."
+      subtitle="Sixteen game servers ship out of the box — and the module format is open, so more are just a template away."
     />
 
     <div class="grid w-full max-w-[1280px] grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
@@ -99,14 +131,6 @@ const games = [
             </div>
             <h2 class="font-primary text-lg font-semibold text-foreground">{game.title}</h2>
             <p class="text-[13px] leading-normal text-muted-foreground">{game.blurb}</p>
-            <ul class="flex flex-col gap-2">
-              {game.features.map((feature) => (
-                <li class="flex items-center gap-2">
-                  <Icon name="check" class="h-3.5 w-3.5 shrink-0 text-primary" />
-                  <span class="text-[13px] text-muted-foreground">{feature}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         ))
       }
@@ -121,7 +145,7 @@ const games = [
       <div class="flex flex-col gap-2">
         <h2 class="font-primary text-lg font-semibold text-foreground">Bring your own game</h2>
         <p class="text-sm leading-relaxed text-muted-foreground">
-          Every module — including these five — is just an OCI bundle: a template.yaml describing
+          Every module — including these sixteen — is just an OCI bundle: a template.yaml describing
           the container, config schema, and capabilities, plus a module.yaml with metadata. If a
           game runs in a container and takes a config file, it can become a Gameplane module.
         </p>

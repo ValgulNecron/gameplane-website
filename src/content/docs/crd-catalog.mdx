@@ -1,0 +1,29 @@
+---
+title: CRD Catalog
+description: The 8 Gameplane custom resources, their scope, and what each one represents.
+section: reference
+order: 5
+icon: braces
+sidebarLabel: CRD catalog
+---
+
+## 8 CRDs, one API group
+
+Every Gameplane custom resource lives in the `gameplane.local/v1alpha1` group — 4 namespaced (per-tenant, server-owned) and 4 cluster-scoped (fleet-wide catalogs and infrastructure).
+
+| Kind | Scope | Purpose |
+|---|---|---|
+| GameServer | Namespaced | a running game instance |
+| Backup | Namespaced | one-shot data-volume snapshot |
+| BackupSchedule | Namespaced | cron recurring backup policy |
+| Restore | Namespaced | restore a Backup snapshot into a volume |
+| GameTemplate | Cluster-scoped | reusable game blueprint (console mode, RCON protocol, version catalog, capabilities) |
+| Module | Cluster-scoped | an installed module bundle; the operator materializes a GameTemplate from it |
+| ModuleSource | Cluster-scoped | a store Gameplane pulls bundles from (oci / git / http / local / upload) |
+| Cluster | Cluster-scoped | registry of a remote Kubernetes cluster (the multi-cluster foundation) |
+
+## Ownership
+
+Clients write `spec`; the operator owns `status` — phase, conditions, and observed fields flow one way, operator to status, never the reverse. A `kubectl apply` and a dashboard action converge on the same CR and the same reconciler.
+
+Full field-by-field reference: each `*_types.go` file's doc comments in [`operator/api/v1alpha1` on GitHub](https://github.com/ValgulNecron/Gameplane/tree/main/operator/api/v1alpha1) are the source `make manifests` generates the CRD YAML from. See [Multi-cluster](./multi-cluster/) for the `Cluster` CRD in context, and [Module Authoring](./module-authoring/) for how `GameTemplate`, `Module`, and `ModuleSource` relate.

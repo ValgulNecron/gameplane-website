@@ -1,0 +1,42 @@
+---
+title: Extension Services
+description: Optional deployable services and the shared SSRF-guard library that harden and extend a Gameplane install.
+section: extending
+order: 2
+icon: blocks
+sidebarLabel: Extension services
+---
+
+import IconList from "../../components/docs/IconList.astro";
+
+## Optional, opt-in
+
+Beyond the core operator, API, and agent, Gameplane ships three optional deployable services plus one shared Go library. Every service defaults to off and is enabled by its own Helm toggle — none of them are on the critical path of running a game server.
+
+## netguard — a shared library, not a service
+
+`netguard` is **not deployed**; it's a Go package linked into the operator and the agent. It implements the SSRF egress dial-guard both use to keep outbound connections away from cluster-internal and cloud-metadata targets: the operator's `ModuleSource` `git`/`http` fetches and the agent's `capabilities.mods.install` downloads each dial through a `net.Dialer.Control` hook that blocks the destination at connect time — enforced late enough that DNS rebinding can't slip past a name-based allowlist. The operator's policy is intentionally more permissive than the agent's (self-hosted registries legitimately live on private/loopback addresses; mod-download URLs are less trusted) — see [Security](./security/) for the full threat model.
+
+## audit-syslog-bridge
+
+A schema-agnostic HTTP-JSON → syslog (RFC 5424) relay. It sits behind the API's audit webhook sink and forwards whatever JSON body it receives verbatim as the syslog message, so it works with any JSON webhook source, not just Gameplane's audit events. Enable it with `api.audit.webhook.syslogBridge.enabled=true`.
+
+## telemetry-receiver
+
+The collection endpoint for Gameplane's optional, anonymous, daily usage report — `{version, servers, templates}`, nothing else, sent only when an admin opts in. It exposes `/ingest` and a Prometheus `/metrics` endpoint; raw reports are never stored, only aggregated counters. Enable it with `api.telemetry.receiver.enabled=true`.
+
+## mcp-server
+
+A strictly **read-only** Model Context Protocol server for AI assistants: JSON-RPC 2.0 over stdio, no network port. It lists and gets the Gameplane CRDs plus Pods, Events, and pod logs, and offers a `propose_fix` tool that returns suggested YAML/`kubectl` text for a human to review — it has **no** create/update/patch/delete tool anywhere in it, enforced structurally and by RBAC. Enable it with `mcpServer.enabled=true`.
+
+<IconList
+  title="Enable flags at a glance"
+  icon="check"
+  items={[
+    "audit-syslog-bridge — api.audit.webhook.syslogBridge.enabled",
+    "telemetry-receiver — api.telemetry.receiver.enabled",
+    "mcp-server — mcpServer.enabled",
+  ]}
+/>
+
+See the [CRD catalog](./crd-catalog/) for how these services fit around the CRDs they read or forward, and [Security](./security/) for the RBAC and network boundaries each one runs inside.
