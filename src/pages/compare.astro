@@ -43,30 +43,56 @@ const rows = [
       subtitle="A quick look at how a Kubernetes-native control plane differs from single-host, Docker-based panels."
     />
 
-    <div class="w-full max-w-[960px] overflow-x-auto">
-      <div class="min-w-[720px] overflow-hidden rounded-m border border-border">
-        <div class="grid grid-cols-3 gap-6 bg-secondary px-6 py-4">
-          <span class="font-primary text-[11px] font-semibold tracking-widest text-muted-foreground"
-            >APPROACH</span
-          >
-          <span class="font-primary text-[11px] font-semibold tracking-widest text-muted-foreground"
-            >DOCKER-BASED PANELS</span
-          >
-          <span class="font-primary text-[11px] font-semibold tracking-widest text-primary"
-            >GAMEPLANE</span
-          >
-        </div>
+    <div class="w-full max-w-[960px]">
+      <!-- Mobile: one stacked card per row -->
+      <div class="flex flex-col gap-4 md:hidden">
         {
-          rows.map((row, index) => (
-            <div
-              class={`grid grid-cols-3 gap-6 bg-card px-6 py-5 ${index < rows.length - 1 ? "border-b border-border" : ""}`}
-            >
-              <span class="font-primary text-sm font-semibold text-foreground">{row.label}</span>
-              <span class="text-[13px] leading-normal text-muted-foreground">{row.docker}</span>
-              <span class="text-[13px] leading-normal text-foreground">{row.gameplane}</span>
+          rows.map((row) => (
+            <div class="flex flex-col gap-4 rounded-m border border-border bg-card p-5">
+              <h3 class="font-primary text-sm font-semibold text-foreground">{row.label}</h3>
+              <div class="flex flex-col gap-1.5 border-t border-border pt-4">
+                <span class="font-primary text-[10px] font-semibold tracking-widest text-muted-foreground">
+                  DOCKER-BASED PANELS
+                </span>
+                <p class="text-[13px] leading-normal text-muted-foreground">{row.docker}</p>
+              </div>
+              <div class="flex flex-col gap-1.5 border-t border-border pt-4">
+                <span class="font-primary text-[10px] font-semibold tracking-widest text-primary">
+                  GAMEPLANE
+                </span>
+                <p class="text-[13px] leading-normal text-foreground">{row.gameplane}</p>
+              </div>
             </div>
           ))
         }
+      </div>
+
+      <!-- Desktop/tablet: 3-column table -->
+      <div class="hidden overflow-x-auto md:block">
+        <div class="min-w-[720px] overflow-hidden rounded-m border border-border">
+          <div class="grid grid-cols-3 gap-6 bg-secondary px-6 py-4">
+            <span class="font-primary text-[11px] font-semibold tracking-widest text-muted-foreground"
+              >APPROACH</span
+            >
+            <span class="font-primary text-[11px] font-semibold tracking-widest text-muted-foreground"
+              >DOCKER-BASED PANELS</span
+            >
+            <span class="font-primary text-[11px] font-semibold tracking-widest text-primary"
+              >GAMEPLANE</span
+            >
+          </div>
+          {
+            rows.map((row, index) => (
+              <div
+                class={`grid grid-cols-3 gap-6 bg-card px-6 py-5 ${index < rows.length - 1 ? "border-b border-border" : ""}`}
+              >
+                <span class="font-primary text-sm font-semibold text-foreground">{row.label}</span>
+                <span class="text-[13px] leading-normal text-muted-foreground">{row.docker}</span>
+                <span class="text-[13px] leading-normal text-foreground">{row.gameplane}</span>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
 
