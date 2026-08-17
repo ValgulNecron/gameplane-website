@@ -1,0 +1,988 @@
+{
+  "type": "frame",
+  "id": "z6p3NP",
+  "x": 0,
+  "y": 92188,
+  "name": "Screen/Docs \u2014 Database Migrations",
+  "theme": {
+    "H:Mode": "Dark"
+  },
+  "clip": true,
+  "width": 1440,
+  "height": 900,
+  "fill": "$H:--background",
+  "children": [
+    {
+      "id": "Z3E2q",
+      "type": "ref",
+      "ref": "K2Rt4H",
+      "height": "fill_container",
+      "name": "DocsSidebar/Expanded",
+      "width": 280
+    },
+    {
+      "type": "frame",
+      "id": "a696R",
+      "name": "Docs Main",
+      "width": "fill_container",
+      "height": "fill_container",
+      "fill": "$H:--background",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "WFbbC",
+          "type": "ref",
+          "ref": "SOdlr",
+          "name": "Docs Top Bar",
+          "width": "fill_container",
+          "descendants": {
+            "NImey": {
+              "content": "Develop"
+            },
+            "ikbi6": {
+              "content": "Database Migrations"
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "xFJTU",
+          "name": "Docs Article Body",
+          "clip": true,
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 32,
+          "padding": 32,
+          "children": [
+            {
+              "type": "frame",
+              "id": "usTVk",
+              "name": "Docs Article",
+              "width": 780,
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qVZ8E",
+                  "name": "Article Eyebrow",
+                  "fill": "#FF8400",
+                  "content": "DEVELOP",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.8
+                },
+                {
+                  "type": "text",
+                  "id": "OA6Gg",
+                  "name": "Article Title",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Database and migrations",
+                  "lineHeight": 1.1,
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "ouu6K",
+                  "name": "Article Lead",
+                  "fill": "#B8B9B6",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Change the API store without breaking SQLite-first installs, optional PostgreSQL builds, startup ordering, or rollback safety.",
+                  "lineHeight": 1.45,
+                  "fontFamily": "Geist",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "XIQLi",
+                  "name": "Article Metadata",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ZfKGg",
+                      "name": "Meta Chip 0",
+                      "fill": "#FF84001F",
+                      "cornerRadius": 999,
+                      "stroke": "#FF840066",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "yj4rm",
+                          "name": "Meta Chip Label 0",
+                          "fill": "#FF9D33",
+                          "content": "DEVELOPER GUIDE",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nLeTS",
+                      "name": "Meta Chip 1",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 999,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "C0rMNv",
+                          "name": "Meta Chip Label 1",
+                          "fill": "#B8B9B6",
+                          "content": "v0.2",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Pb5Kk",
+                      "name": "Meta Chip 2",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 999,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "BdUAb",
+                          "name": "Meta Chip Label 2",
+                          "fill": "#B8B9B6",
+                          "content": "16 MIN",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "L5E9uo",
+                  "name": "Article Callout",
+                  "width": "fill_container",
+                  "fill": "#FF84000F",
+                  "cornerRadius": 8,
+                  "stroke": "#FF84004D",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "gap": 10,
+                  "padding": [
+                    10,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "SToMS",
+                      "name": "Article Callout Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "database-zap",
+                      "library": "lucide",
+                      "fill": "#FF8400"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yzfpz",
+                      "name": "Article Callout Text",
+                      "fill": "#E7E7E4",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Released migration files are immutable; every schema change gets the next ordered transactional file.",
+                      "fontFamily": "Geist",
+                      "fontSize": 12.5,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yPSZa",
+                  "name": "Guide Section 1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Pke10",
+                      "name": "Section Title 1",
+                      "fill": "#FFFFFF",
+                      "content": "Storage model",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "x3jw86",
+                      "name": "Section Body 1",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Platform identity and settings live in the database while desired infrastructure remains in CRDs.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tUfli",
+                      "name": "Section List 1",
+                      "width": "fill_container",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 8,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "XugIw",
+                          "name": "Section 1 Item 0",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "f18U0z",
+                              "name": "Section 1 Item Icon 0",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "w6qvf",
+                              "name": "Section 1 Item Text 0",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "SQLite is default and single-connection; PostgreSQL uses a build tag.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "VT5eQ",
+                          "name": "Section 1 Item 1",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "HXmhk",
+                              "name": "Section 1 Item Icon 1",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "JCCKz",
+                              "name": "Section 1 Item Text 1",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Users, sessions, roles, config, and audit data live here.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dNDVP",
+                          "name": "Section 1 Item 2",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "uKiuD",
+                              "name": "Section 1 Item Icon 2",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Ipl4d",
+                              "name": "Section 1 Item Text 2",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Embedded migration SQL runs in filename order at startup.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vFYCt",
+                  "name": "Guide Section 2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Te6oU",
+                      "name": "Section Title 2",
+                      "fill": "#FFFFFF",
+                      "content": "Write a migration",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "H94wU",
+                      "name": "Section Body 2",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Add one portable, immutable, zero-padded SQL file and use a transaction that records success only at completion.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "G0Mwbm",
+                      "name": "Section List 2",
+                      "width": "fill_container",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 8,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "u3j4N",
+                          "name": "Section 2 Item 0",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "TohHD",
+                              "name": "Section 2 Item Icon 0",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "gRJls",
+                              "name": "Section 2 Item Text 0",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Never rewrite an already released migration.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "S8iv6t",
+                          "name": "Section 2 Item 1",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "XKZzX",
+                              "name": "Section 2 Item Icon 1",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "J2Q8H",
+                              "name": "Section 2 Item Text 1",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Keep SQL portable across SQLite and PostgreSQL.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "gdqeC",
+                          "name": "Section 2 Item 2",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "Hwryu",
+                              "name": "Section 2 Item Icon 2",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "hBSB9",
+                              "name": "Section 2 Item Text 2",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Use SQLite-safe rebuilds where constraints cannot be altered.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xqyAW",
+                  "name": "Guide Section 3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "A4sUDo",
+                      "name": "Section Title 3",
+                      "fill": "#FFFFFF",
+                      "content": "Validate and operate",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wP0mo",
+                      "name": "Section Body 3",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Test fresh schema, prior-version upgrade, reopen, transaction rollback, and both database build modes.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XdFZV",
+                      "name": "Quick Reference",
+                      "width": "fill_container",
+                      "fill": "#0D0D0D",
+                      "cornerRadius": 8,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "padding": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "XFvs6",
+                          "name": "Quick Reference Label",
+                          "fill": "#FF8400",
+                          "content": "MIGRATION LOOP",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.6
+                        },
+                        {
+                          "type": "text",
+                          "id": "p2LgJ",
+                          "name": "Quick Reference Line 1",
+                          "fill": "#FFFFFF",
+                          "content": "01  api/internal/db/migrations/006_<change>.sql",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "nO0oy",
+                          "name": "Quick Reference Line 2",
+                          "fill": "#FFFFFF",
+                          "content": "02  cd api && go test ./internal/db",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "jeUYl",
+                          "name": "Quick Reference Line 3",
+                          "fill": "#FFFFFF",
+                          "content": "03  go test -tags postgres ./internal/db",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11.5,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fAmYu",
+                  "name": "Article Next Link",
+                  "width": "fill_container",
+                  "stroke": "#2E2E2E",
+                  "strokeWidth": {
+                    "top": 1
+                  },
+                  "strokeAlignment": "inner",
+                  "strokeLinejoin": "round",
+                  "padding": [
+                    10,
+                    0,
+                    0,
+                    0
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "o07jKG",
+                      "name": "Next Link Text",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "XWmF7",
+                          "name": "Next Link Eyebrow",
+                          "fill": "#737570",
+                          "content": "NEXT GUIDE",
+                          "fontFamily": "Geist",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "AOgnJ",
+                          "name": "Next Link Title",
+                          "fill": "#FFFFFF",
+                          "content": "Testing, coverage, and E2E",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "NtZ3P",
+                      "name": "Next Link Icon",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "#B8B9B6"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zRiee",
+              "name": "Docs Page Aside",
+              "width": 250,
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Fmkza",
+                  "name": "Docs Table of Contents",
+                  "width": "fill_container",
+                  "fill": "#171717",
+                  "cornerRadius": 10,
+                  "stroke": "#2E2E2E",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "x85727",
+                      "name": "TOC Label",
+                      "fill": "#737570",
+                      "content": "ON THIS PAGE",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 9,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MYgoQ",
+                      "name": "TOC Row 0",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "rqojg",
+                          "name": "TOC Icon 0",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "hash",
+                          "library": "lucide",
+                          "fill": "#FF8400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "o5RSoL",
+                          "name": "TOC Text 0",
+                          "fill": "#FFFFFF",
+                          "content": "Storage model",
+                          "fontFamily": "Geist",
+                          "fontSize": 12.5,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "l8W2cm",
+                      "name": "TOC Row 1",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "y1yB1",
+                          "name": "TOC Icon 1",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "hash",
+                          "library": "lucide",
+                          "fill": "#737570"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ehzZ9",
+                          "name": "TOC Text 1",
+                          "fill": "#B8B9B6",
+                          "content": "Migration file",
+                          "fontFamily": "Geist",
+                          "fontSize": 12.5,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mw9wa",
+                      "name": "TOC Row 2",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "YsZiC",
+                          "name": "TOC Icon 2",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "hash",
+                          "library": "lucide",
+                          "fill": "#737570"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Y0d3ar",
+                          "name": "TOC Text 2",
+                          "fill": "#B8B9B6",
+                          "content": "Validation",
+                          "fontFamily": "Geist",
+                          "fontSize": 12.5,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "bYSMc",
+                      "name": "TOC Divider",
+                      "fill": "#2E2E2E",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "ONqrr",
+                      "name": "Coverage Label",
+                      "fill": "#737570",
+                      "content": "COVERS",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 9,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "frame",
+                      "id": "iNx8v",
+                      "name": "Coverage Row 0",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "cWSaQ",
+                          "name": "Coverage Icon 0",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "#8B8D88"
+                        },
+                        {
+                          "type": "text",
+                          "id": "TDehn",
+                          "name": "Coverage Text 0",
+                          "fill": "#B8B9B6",
+                          "content": "SQLite",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "er3kB",
+                      "name": "Coverage Row 1",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "vG9Ey",
+                          "name": "Coverage Icon 1",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "#8B8D88"
+                        },
+                        {
+                          "type": "text",
+                          "id": "AuTib",
+                          "name": "Coverage Text 1",
+                          "fill": "#B8B9B6",
+                          "content": "PostgreSQL",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vxDnJ",
+                      "name": "Coverage Row 2",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "HwOcY",
+                          "name": "Coverage Icon 2",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "#8B8D88"
+                        },
+                        {
+                          "type": "text",
+                          "id": "aL2vH",
+                          "name": "Coverage Text 2",
+                          "fill": "#B8B9B6",
+                          "content": "Schema",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "eEo9v",
+                  "name": "Edit Page Card",
+                  "width": "fill_container",
+                  "fill": "#111111",
+                  "cornerRadius": 10,
+                  "stroke": "#2E2E2E",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "qFft7",
+                      "name": "Edit Page Title",
+                      "fill": "#FFFFFF",
+                      "content": "Improve this page",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wkmFh",
+                      "name": "Edit Page Body",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Found a gap? Open a docs issue or suggest an edit on GitHub.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Geist",
+                      "fontSize": 11.5,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "f85Nh1",
+                      "name": "Edit Page Link",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "yUKEd",
+                          "name": "Edit Page Link Text",
+                          "fill": "#FF9D33",
+                          "content": "Edit this page",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "p14c43",
+                          "name": "Edit Page Link Icon",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "external-link",
+                          "library": "lucide",
+                          "fill": "#FF8400"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,988 @@
+{
+  "type": "frame",
+  "id": "BBcwU",
+  "x": 0,
+  "y": 77368,
+  "name": "Screen/Docs \u2014 Mod Registry Credentials",
+  "theme": {
+    "H:Mode": "Dark"
+  },
+  "clip": true,
+  "width": 1440,
+  "height": 900,
+  "fill": "$H:--background",
+  "children": [
+    {
+      "id": "WGkDg",
+      "type": "ref",
+      "ref": "K2Rt4H",
+      "height": "fill_container",
+      "name": "DocsSidebar/Expanded",
+      "width": 280
+    },
+    {
+      "type": "frame",
+      "id": "qnY4h",
+      "name": "Docs Main",
+      "width": "fill_container",
+      "height": "fill_container",
+      "fill": "$H:--background",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "y9Ycd",
+          "type": "ref",
+          "ref": "SOdlr",
+          "name": "Docs Top Bar",
+          "width": "fill_container",
+          "descendants": {
+            "NImey": {
+              "content": "Develop"
+            },
+            "ikbi6": {
+              "content": "Mod Registries"
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "ElX4f",
+          "name": "Docs Article Body",
+          "clip": true,
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 32,
+          "padding": 32,
+          "children": [
+            {
+              "type": "frame",
+              "id": "yzYoM",
+              "name": "Docs Article",
+              "width": 780,
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PGAz4",
+                  "name": "Article Eyebrow",
+                  "fill": "#FF8400",
+                  "content": "EXTEND",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.8
+                },
+                {
+                  "type": "text",
+                  "id": "F7UDSU",
+                  "name": "Article Title",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Mod registries and API keys",
+                  "lineHeight": 1.1,
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "n0onhR",
+                  "name": "Article Lead",
+                  "fill": "#B8B9B6",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Enable credentialed content registries without leaking keys and understand why a provider appears or remains hidden.",
+                  "lineHeight": 1.45,
+                  "fontFamily": "Geist",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "VxucQ",
+                  "name": "Article Metadata",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "MEVzd",
+                      "name": "Meta Chip 0",
+                      "fill": "#FF84001F",
+                      "cornerRadius": 999,
+                      "stroke": "#FF840066",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "q7S13f",
+                          "name": "Meta Chip Label 0",
+                          "fill": "#FF9D33",
+                          "content": "ADMIN GUIDE",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "WM4wk",
+                      "name": "Meta Chip 1",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 999,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "s4QKsP",
+                          "name": "Meta Chip Label 1",
+                          "fill": "#B8B9B6",
+                          "content": "v0.2",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hUQ1k",
+                      "name": "Meta Chip 2",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 999,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "S2QOu",
+                          "name": "Meta Chip Label 2",
+                          "fill": "#B8B9B6",
+                          "content": "12 MIN",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n8EA76",
+                  "name": "Article Callout",
+                  "width": "fill_container",
+                  "fill": "#FF84000F",
+                  "cornerRadius": 8,
+                  "stroke": "#FF84004D",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "gap": 10,
+                  "padding": [
+                    10,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "i6P1I",
+                      "name": "Article Callout Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "key-square",
+                      "library": "lucide",
+                      "fill": "#FF8400"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TcBCL",
+                      "name": "Article Callout Text",
+                      "fill": "#E7E7E4",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "A configured key does not make a registry relevant to every game, loader, or module capability.",
+                      "fontFamily": "Geist",
+                      "fontSize": 12.5,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tpQh5",
+                  "name": "Guide Section 1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mykM7",
+                      "name": "Section Title 1",
+                      "fill": "#FFFFFF",
+                      "content": "Understand availability",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FrNsI",
+                      "name": "Section Body 1",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Some registries are always available; others remain hidden until credentials and compatibility requirements are met.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sNgeV",
+                      "name": "Section List 1",
+                      "width": "fill_container",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 8,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "DlJQr",
+                          "name": "Section 1 Item 0",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "hgnll",
+                              "name": "Section 1 Item Icon 0",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "GpIUH",
+                              "name": "Section 1 Item Text 0",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "CurseForge, Steam Workshop, and Nexus require configured credentials.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Bwp5D",
+                          "name": "Section 1 Item 1",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "Q7RWxq",
+                              "name": "Section 1 Item Icon 1",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "RvsYq",
+                              "name": "Section 1 Item Text 1",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Modrinth, Thunderstore, Hangar, GitHub, and others may be always-on.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "tuW20",
+                          "name": "Section 1 Item 2",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "MQd8c",
+                              "name": "Section 1 Item Icon 2",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "QnAdj",
+                              "name": "Section 1 Item Text 2",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Game, loader, version, and module capabilities still filter relevance.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GUVcJ",
+                  "name": "Guide Section 2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vS9gy",
+                      "name": "Section Title 2",
+                      "fill": "#FFFFFF",
+                      "content": "Set, replace, or remove a key",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "N3Wmt",
+                      "name": "Section Body 2",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Use the credential control so the value is stored in a Secret, never in metadata, URLs, logs, or screenshots.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HuliS",
+                      "name": "Section List 2",
+                      "width": "fill_container",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 8,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "R2YbW",
+                          "name": "Section 2 Item 0",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "QdTiz",
+                              "name": "Section 2 Item Icon 0",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ZbeIK",
+                              "name": "Section 2 Item Text 0",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Set a key for an unconfigured provider; Replace an existing one.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dQPyJ",
+                          "name": "Section 2 Item 1",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "VgNxR",
+                              "name": "Section 2 Item Icon 1",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "IqJf6",
+                              "name": "Section 2 Item Text 1",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Removing a key hides or disables the provider.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "vbyDt",
+                          "name": "Section 2 Item 2",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "ucnJw",
+                              "name": "Section 2 Item Icon 2",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "RFy3l",
+                              "name": "Section 2 Item Text 2",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Check required update/install workflows before removal.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "h1KMf",
+                  "name": "Guide Section 3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "E0vtf",
+                      "name": "Section Title 3",
+                      "fill": "#FFFFFF",
+                      "content": "Verify and rotate",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "S5bHUe",
+                      "name": "Section Body 3",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Run a compatible harmless search, diagnose without exposing the key, then rotate and revoke on a schedule.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "leme6",
+                      "name": "Quick Reference",
+                      "width": "fill_container",
+                      "fill": "#0D0D0D",
+                      "cornerRadius": 8,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "padding": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "CPBci",
+                          "name": "Quick Reference Label",
+                          "fill": "#FF8400",
+                          "content": "REGISTRY CHECK",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.6
+                        },
+                        {
+                          "type": "text",
+                          "id": "bZsov",
+                          "name": "Quick Reference Line 1",
+                          "fill": "#FFFFFF",
+                          "content": "01  Provider credential + compatible game/loader/module capability",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "b9LCq",
+                          "name": "Quick Reference Line 2",
+                          "fill": "#FFFFFF",
+                          "content": "02  Set/Replace stores Secret; Remove hides or disables provider",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "fIOdG",
+                          "name": "Quick Reference Line 3",
+                          "fill": "#FFFFFF",
+                          "content": "03  Test search \u2192 rotate \u2192 retest metadata/install \u2192 revoke old key",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11.5,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZCiW9",
+                  "name": "Article Next Link",
+                  "width": "fill_container",
+                  "stroke": "#2E2E2E",
+                  "strokeWidth": {
+                    "top": 1
+                  },
+                  "strokeAlignment": "inner",
+                  "strokeLinejoin": "round",
+                  "padding": [
+                    10,
+                    0,
+                    0,
+                    0
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Ljafz",
+                      "name": "Next Link Text",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "aUXZL",
+                          "name": "Next Link Eyebrow",
+                          "fill": "#737570",
+                          "content": "NEXT GUIDE",
+                          "fontFamily": "Geist",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "w94mh",
+                          "name": "Next Link Title",
+                          "fill": "#FFFFFF",
+                          "content": "Cluster nodes and kubeconfig",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "U5vFCH",
+                      "name": "Next Link Icon",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "#B8B9B6"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "mNxiR",
+              "name": "Docs Page Aside",
+              "width": 250,
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tbW0s",
+                  "name": "Docs Table of Contents",
+                  "width": "fill_container",
+                  "fill": "#171717",
+                  "cornerRadius": 10,
+                  "stroke": "#2E2E2E",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SrcWu",
+                      "name": "TOC Label",
+                      "fill": "#737570",
+                      "content": "ON THIS PAGE",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 9,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nF1oO",
+                      "name": "TOC Row 0",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "B1sAv",
+                          "name": "TOC Icon 0",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "hash",
+                          "library": "lucide",
+                          "fill": "#FF8400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "vtMsC",
+                          "name": "TOC Text 0",
+                          "fill": "#FFFFFF",
+                          "content": "Availability",
+                          "fontFamily": "Geist",
+                          "fontSize": 12.5,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "a6SY6",
+                      "name": "TOC Row 1",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "pKcSQ",
+                          "name": "TOC Icon 1",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "hash",
+                          "library": "lucide",
+                          "fill": "#737570"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Ut1dP",
+                          "name": "TOC Text 1",
+                          "fill": "#B8B9B6",
+                          "content": "Credential control",
+                          "fontFamily": "Geist",
+                          "fontSize": 12.5,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Pbdp4",
+                      "name": "TOC Row 2",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "jaNGb",
+                          "name": "TOC Icon 2",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "hash",
+                          "library": "lucide",
+                          "fill": "#737570"
+                        },
+                        {
+                          "type": "text",
+                          "id": "XCTWf",
+                          "name": "TOC Text 2",
+                          "fill": "#B8B9B6",
+                          "content": "Verification",
+                          "fontFamily": "Geist",
+                          "fontSize": 12.5,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "Z7QlQR",
+                      "name": "TOC Divider",
+                      "fill": "#2E2E2E",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "Q6d9d",
+                      "name": "Coverage Label",
+                      "fill": "#737570",
+                      "content": "COVERS",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 9,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ipHoK",
+                      "name": "Coverage Row 0",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "lB3JV",
+                          "name": "Coverage Icon 0",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "#8B8D88"
+                        },
+                        {
+                          "type": "text",
+                          "id": "N0QLz",
+                          "name": "Coverage Text 0",
+                          "fill": "#B8B9B6",
+                          "content": "Registries",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "avoPJ",
+                      "name": "Coverage Row 1",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "Z89GcW",
+                          "name": "Coverage Icon 1",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "#8B8D88"
+                        },
+                        {
+                          "type": "text",
+                          "id": "rj3oJ",
+                          "name": "Coverage Text 1",
+                          "fill": "#B8B9B6",
+                          "content": "Secrets",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cfLNG",
+                      "name": "Coverage Row 2",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "vgyDB",
+                          "name": "Coverage Icon 2",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "#8B8D88"
+                        },
+                        {
+                          "type": "text",
+                          "id": "GBBMB",
+                          "name": "Coverage Text 2",
+                          "fill": "#B8B9B6",
+                          "content": "Rotation",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "G0Fds",
+                  "name": "Edit Page Card",
+                  "width": "fill_container",
+                  "fill": "#111111",
+                  "cornerRadius": 10,
+                  "stroke": "#2E2E2E",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xAkv3",
+                      "name": "Edit Page Title",
+                      "fill": "#FFFFFF",
+                      "content": "Improve this page",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ft4lN",
+                      "name": "Edit Page Body",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Found a gap? Open a docs issue or suggest an edit on GitHub.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Geist",
+                      "fontSize": 11.5,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ikoBd",
+                      "name": "Edit Page Link",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "npYr5",
+                          "name": "Edit Page Link Text",
+                          "fill": "#FF9D33",
+                          "content": "Edit this page",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "rtf51",
+                          "name": "Edit Page Link Icon",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "external-link",
+                          "library": "lucide",
+                          "fill": "#FF8400"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

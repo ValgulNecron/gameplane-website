@@ -1,0 +1,988 @@
+{
+  "type": "frame",
+  "id": "o5zdzd",
+  "x": 0,
+  "y": 91048,
+  "name": "Screen/Docs \u2014 Agent & Game Protocols",
+  "theme": {
+    "H:Mode": "Dark"
+  },
+  "clip": true,
+  "width": 1440,
+  "height": 900,
+  "fill": "$H:--background",
+  "children": [
+    {
+      "id": "hsdtW",
+      "type": "ref",
+      "ref": "K2Rt4H",
+      "height": "fill_container",
+      "name": "DocsSidebar/Expanded",
+      "width": 280
+    },
+    {
+      "type": "frame",
+      "id": "A2Ljhu",
+      "name": "Docs Main",
+      "width": "fill_container",
+      "height": "fill_container",
+      "fill": "$H:--background",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "C0Nznx",
+          "type": "ref",
+          "ref": "SOdlr",
+          "name": "Docs Top Bar",
+          "width": "fill_container",
+          "descendants": {
+            "NImey": {
+              "content": "Develop"
+            },
+            "ikbi6": {
+              "content": "Agent & Protocols"
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "BVOPq",
+          "name": "Docs Article Body",
+          "clip": true,
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 32,
+          "padding": 32,
+          "children": [
+            {
+              "type": "frame",
+              "id": "q7kNbR",
+              "name": "Docs Article",
+              "width": 780,
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "u3hsI4",
+                  "name": "Article Eyebrow",
+                  "fill": "#FF8400",
+                  "content": "DEVELOP",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.8
+                },
+                {
+                  "type": "text",
+                  "id": "P9ZN0",
+                  "name": "Article Title",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Agent and game protocols",
+                  "lineHeight": 1.1,
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 30,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "m4WJdY",
+                  "name": "Article Lead",
+                  "fill": "#B8B9B6",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Extend the per-game sidecar while keeping its authenticated contract, filesystem boundary, and capabilities explicit.",
+                  "lineHeight": 1.45,
+                  "fontFamily": "Geist",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "CYRR9",
+                  "name": "Article Metadata",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "EBR77",
+                      "name": "Meta Chip 0",
+                      "fill": "#FF84001F",
+                      "cornerRadius": 999,
+                      "stroke": "#FF840066",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "v4UZW",
+                          "name": "Meta Chip Label 0",
+                          "fill": "#FF9D33",
+                          "content": "DEVELOPER GUIDE",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BE875",
+                      "name": "Meta Chip 1",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 999,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Co98q",
+                          "name": "Meta Chip Label 1",
+                          "fill": "#B8B9B6",
+                          "content": "v0.2",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FRAQE",
+                      "name": "Meta Chip 2",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 999,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "padding": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "e87WG",
+                          "name": "Meta Chip Label 2",
+                          "fill": "#B8B9B6",
+                          "content": "18 MIN",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "v1HIIm",
+                  "name": "Article Callout",
+                  "width": "fill_container",
+                  "fill": "#FF84000F",
+                  "cornerRadius": 8,
+                  "stroke": "#FF84004D",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "gap": 10,
+                  "padding": [
+                    10,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "gxZbT",
+                      "name": "Article Callout Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "gamepad-2",
+                      "library": "lucide",
+                      "fill": "#FF8400"
+                    },
+                    {
+                      "type": "text",
+                      "id": "T59Ajj",
+                      "name": "Article Callout Text",
+                      "fill": "#E7E7E4",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Unsupported capabilities must disappear or degrade safely\u2014not emit a request that cannot succeed.",
+                      "fontFamily": "Geist",
+                      "fontSize": 12.5,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GICiO",
+                  "name": "Guide Section 1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "x39Toe",
+                      "name": "Section Title 1",
+                      "fill": "#FFFFFF",
+                      "content": "Agent surface",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "J24fD",
+                      "name": "Section Body 1",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "The sidecar serves authenticated operational endpoints with health and metrics as narrow unauthenticated exceptions.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Z6kaZ",
+                      "name": "Section List 1",
+                      "width": "fill_container",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 8,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "uh3Cl",
+                          "name": "Section 1 Item 0",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "pGJsu",
+                              "name": "Section 1 Item Icon 0",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "W6IpAx",
+                              "name": "Section 1 Item Text 0",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Surface includes files, logs, console, players, mods, status, actions, hooks.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "xVs5b",
+                          "name": "Section 1 Item 1",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "eckrn",
+                              "name": "Section 1 Item Icon 1",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "EmNkJ",
+                              "name": "Section 1 Item Text 1",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Production uses operator-managed mTLS; bearer is compatibility-only.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "oOuLg",
+                          "name": "Section 1 Item 2",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "I7Mnn8",
+                              "name": "Section 1 Item Icon 2",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "PE1gp",
+                              "name": "Section 1 Item Text 2",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "File operations are rooted at /data, bounded, and traversal-safe.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "JQ5LZ",
+                  "name": "Guide Section 2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Gw1qy",
+                      "name": "Section Title 2",
+                      "fill": "#FFFFFF",
+                      "content": "Game protocols",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BGIGS",
+                      "name": "Section Body 2",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Adapters normalize RCON, PTY, log files, moderation, status, and graceful stop across games.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HwYlW",
+                      "name": "Section List 2",
+                      "width": "fill_container",
+                      "fill": "#1A1A1A",
+                      "cornerRadius": 8,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "padding": [
+                        8,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "XbyXB",
+                          "name": "Section 2 Item 0",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "OIzLl",
+                              "name": "Section 2 Item Icon 0",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "C4Ca8",
+                              "name": "Section 2 Item Text 0",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Separate authoritative game logs from container stdout.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FXYch",
+                          "name": "Section 2 Item 1",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "NcDFr",
+                              "name": "Section 2 Item Icon 1",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "W4gSpJ",
+                              "name": "Section 2 Item Text 1",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Model console mode and credentials without hard-coding secrets.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Tlwlg",
+                          "name": "Section 2 Item 2",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "y3pzZ",
+                              "name": "Section 2 Item Icon 2",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "#FF8400"
+                            },
+                            {
+                              "type": "text",
+                              "id": "UF40z",
+                              "name": "Section 2 Item Text 2",
+                              "fill": "#E7E7E4",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Capability gates hide unsupported status, players, actions, and mods.",
+                              "fontFamily": "Geist",
+                              "fontSize": 12.5,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yRXOs",
+                  "name": "Guide Section 3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Yla3Z",
+                      "name": "Section Title 3",
+                      "fill": "#FFFFFF",
+                      "content": "Extend safely",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "C7fYgE",
+                      "name": "Section Body 3",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Update OpenAPI, handlers, API proxy, safety libraries, and protocol tests as one wire-contract change.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Geist",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gTA3X",
+                      "name": "Quick Reference",
+                      "width": "fill_container",
+                      "fill": "#0D0D0D",
+                      "cornerRadius": 8,
+                      "stroke": "#2E2E2E",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "padding": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "DE3rJ",
+                          "name": "Quick Reference Label",
+                          "fill": "#FF8400",
+                          "content": "AGENT CONTRACT",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.6
+                        },
+                        {
+                          "type": "text",
+                          "id": "qJ1K3",
+                          "name": "Quick Reference Line 1",
+                          "fill": "#FFFFFF",
+                          "content": "01  cd agent && go test ./...",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "o0tGNh",
+                          "name": "Quick Reference Line 2",
+                          "fill": "#FFFFFF",
+                          "content": "02  agent/openapi.yaml   # contract source",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11.5,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "GZfiN",
+                          "name": "Quick Reference Line 3",
+                          "fill": "#FFFFFF",
+                          "content": "03  GET /healthz \u00b7 GET /metrics \u00b7 WSS /console",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 11.5,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "y6bI0",
+                  "name": "Article Next Link",
+                  "width": "fill_container",
+                  "stroke": "#2E2E2E",
+                  "strokeWidth": {
+                    "top": 1
+                  },
+                  "strokeAlignment": "inner",
+                  "strokeLinejoin": "round",
+                  "padding": [
+                    10,
+                    0,
+                    0,
+                    0
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Ndtap",
+                      "name": "Next Link Text",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "XeEEF",
+                          "name": "Next Link Eyebrow",
+                          "fill": "#737570",
+                          "content": "NEXT GUIDE",
+                          "fontFamily": "Geist",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "xaLIi",
+                          "name": "Next Link Title",
+                          "fill": "#FFFFFF",
+                          "content": "Database and migrations",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "kN8Nv",
+                      "name": "Next Link Icon",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "#B8B9B6"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Rx5ww",
+              "name": "Docs Page Aside",
+              "width": 250,
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Xkcan",
+                  "name": "Docs Table of Contents",
+                  "width": "fill_container",
+                  "fill": "#171717",
+                  "cornerRadius": 10,
+                  "stroke": "#2E2E2E",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "yeO1q",
+                      "name": "TOC Label",
+                      "fill": "#737570",
+                      "content": "ON THIS PAGE",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 9,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "frame",
+                      "id": "h3D3CS",
+                      "name": "TOC Row 0",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "pTJt8",
+                          "name": "TOC Icon 0",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "hash",
+                          "library": "lucide",
+                          "fill": "#FF8400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "JlN0s",
+                          "name": "TOC Text 0",
+                          "fill": "#FFFFFF",
+                          "content": "Surface",
+                          "fontFamily": "Geist",
+                          "fontSize": 12.5,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "K0xpq",
+                      "name": "TOC Row 1",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "sdxxb",
+                          "name": "TOC Icon 1",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "hash",
+                          "library": "lucide",
+                          "fill": "#737570"
+                        },
+                        {
+                          "type": "text",
+                          "id": "dePXz",
+                          "name": "TOC Text 1",
+                          "fill": "#B8B9B6",
+                          "content": "Protocols",
+                          "fontFamily": "Geist",
+                          "fontSize": 12.5,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BEoO6",
+                      "name": "TOC Row 2",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "zTqsG",
+                          "name": "TOC Icon 2",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "hash",
+                          "library": "lucide",
+                          "fill": "#737570"
+                        },
+                        {
+                          "type": "text",
+                          "id": "tCM6W",
+                          "name": "TOC Text 2",
+                          "fill": "#B8B9B6",
+                          "content": "Wire changes",
+                          "fontFamily": "Geist",
+                          "fontSize": 12.5,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "YiCWq",
+                      "name": "TOC Divider",
+                      "fill": "#2E2E2E",
+                      "width": "fill_container",
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "n1iiHn",
+                      "name": "Coverage Label",
+                      "fill": "#737570",
+                      "content": "COVERS",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 9,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EvboC",
+                      "name": "Coverage Row 0",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "jYdM0",
+                          "name": "Coverage Icon 0",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "#8B8D88"
+                        },
+                        {
+                          "type": "text",
+                          "id": "YOmpD",
+                          "name": "Coverage Text 0",
+                          "fill": "#B8B9B6",
+                          "content": "Agent",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tTuhJ",
+                      "name": "Coverage Row 1",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "RQ3xI",
+                          "name": "Coverage Icon 1",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "#8B8D88"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lp6f3",
+                          "name": "Coverage Text 1",
+                          "fill": "#B8B9B6",
+                          "content": "RCON",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "S9fM2O",
+                      "name": "Coverage Row 2",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "JG87D",
+                          "name": "Coverage Icon 2",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "book-open",
+                          "library": "lucide",
+                          "fill": "#8B8D88"
+                        },
+                        {
+                          "type": "text",
+                          "id": "WZUAh",
+                          "name": "Coverage Text 2",
+                          "fill": "#B8B9B6",
+                          "content": "mTLS",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "JnlZd",
+                  "name": "Edit Page Card",
+                  "width": "fill_container",
+                  "fill": "#111111",
+                  "cornerRadius": 10,
+                  "stroke": "#2E2E2E",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vRHfU",
+                      "name": "Edit Page Title",
+                      "fill": "#FFFFFF",
+                      "content": "Improve this page",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "v3IOT",
+                      "name": "Edit Page Body",
+                      "fill": "#B8B9B6",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Found a gap? Open a docs issue or suggest an edit on GitHub.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Geist",
+                      "fontSize": 11.5,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "E9zNmu",
+                      "name": "Edit Page Link",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bM9x4",
+                          "name": "Edit Page Link Text",
+                          "fill": "#FF9D33",
+                          "content": "Edit this page",
+                          "fontFamily": "Geist",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "eFu8g",
+                          "name": "Edit Page Link Icon",
+                          "width": 12,
+                          "height": 12,
+                          "icon": "external-link",
+                          "library": "lucide",
+                          "fill": "#FF8400"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
